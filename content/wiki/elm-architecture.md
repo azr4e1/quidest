@@ -14,6 +14,7 @@ The Elm Architecture is a pattern for architecting interactive programs, like we
 
 Elm programs always look something like:
 
+```
       ┌───────────Html────────┐
       │                       │
       │                       │
@@ -26,6 +27,7 @@ Elm programs always look something like:
       │                       │
       └────────────Msg────────┘
 
+```
 
 The Elm program produces HTML to show on screen, and then the computer sends back messages of what is going on - "They clicked a button"
 
