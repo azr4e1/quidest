@@ -5,7 +5,7 @@
   {{ end }}
   <ul class="blog-posts">
     {{ range .Pages }}
-    <li class="article-item" id="{{.Title}}{{with .Params.Tags}}{{delimit . `_`}}{{end}}">
+    <li class="article-item" id="{{.Title}}_{{with .Params.Tags}}{{delimit . `_`}}{{end}}">
       <span>
         <i>
           <time datetime='{{ .Date.Format "2006-01-02" }}' pubdate>
