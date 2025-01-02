@@ -16,12 +16,14 @@ The marketing funnel is an abstraction of what the journey of a typical customer
 There can be more phases depending on the source. It is called a funnel because through these various stages the number of customers that will make
 it from one stage to the other reduces at each step - losing customers because of competition, bad targeting or low brand recognition, etc.
 
+```
 \       Acquisition       /
  \-----------------------/
   \     Engagement      /
    \-------------------/
     \  Monetization   /
      \ and Retention /
+```
 
 With analytics, you can see which channels perform better at each stage, and optimize your marketing activity accordingly.
 
