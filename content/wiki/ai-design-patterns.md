@@ -11,6 +11,8 @@ tags = ["training",  "design",  "proxy",  "adversarial",  "language",  "testing"
 Designing AI applications that are scalable is difficult and in its early stages. Some design patterns have emerged for efficient handling of resources and scalability.
 
 ## AI Query Router
+
+```
                  ┌─────────┐
                  │ Query   │
                  └────┬────┘
@@ -26,6 +28,7 @@ Designing AI applications that are scalable is difficult and in its early stages
 │  Small Language   │   │  Large Language    │
 │     Model         │   │     Model          │
 └───────────────────┘   └────────────────────┘
+```
 
 A user inputs a query, which is sent to the _router_. The router is a classifier that categorizes the input.
 
@@ -33,6 +36,8 @@ A user inputs a query, which is sent to the _router_. The router is a classifier
 - If it is not, a LLM handles it.
 
 ## AI Training Design Pattern
+
+```
 ┌────────┐    ┌──────────┐
 │ Model  │    │   Data   │
 └────┬───┘    └─────┬────┘
@@ -55,6 +60,7 @@ A user inputs a query, which is sent to the _router_. The router is a classifier
   └──┤  Adversarial  │
      │     Mode      │
      └───────────────┘
+```
 
 Models are trained with data (which can be real-world and synthetic or made by another machine), then they are sent for evaluation.
 
@@ -65,6 +71,8 @@ The outputs can also be quite variable, a result of the non-determinism and chao
 Adversarial models will be used to test and evaluate AI. Adversarial models can suggest billions of tests to stress the model. They can be trained to have strengths different to the target model. Just as great teammates and competitors improve our performance, adversarial models play will play that role for AI.
 
 ## AI Security Design Pattern
+
+```
               ┌─────────┐
               │  User   │
               └───────┬─┘
@@ -87,6 +95,8 @@ Cleaned Answer  │     │ Query
               ┌─┴───────┐
               │  Model  │
               └─────────┘
+```
+
 
 The core security around LLMs has two components. A user component, here it’s called a proxy, and a firewall, which wraps the model.
 
@@ -98,6 +108,8 @@ Other security layers will exist within the stack, but in terms of the query pat
 
 
 ## AI Deployment and Evaluation Design Pattern
+
+```
            ┌───────────────────┐
            │                   │
            │ ┌───────────┐     │
@@ -132,6 +144,7 @@ Other security layers will exist within the stack, but in terms of the query pat
         └────►│ Production │◄────┘
               │            │
               └────────────┘
+```
 
 The developer’s machine is secured with endpoint detection and response, or EDR, to ensure that the data being used to train models and the underlying models are not poisoned.
 
