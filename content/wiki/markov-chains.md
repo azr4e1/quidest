@@ -20,32 +20,32 @@ Property* or memorylessness.
 
 A Markov Chain is defined by
 
-1. A set of states S = (s_1, s_2, ..., s_n)
-2. Transition probabilities: the probability of moving from state s_i to s_j is P_(ij), so that:
+1. A set of states $S = (s_1, s_2, ..., s_n)$
+2. Transition probabilities: the probability of moving from state $s_i$ to $s_j$ is $P_{ij}$, so that:
 
-```
-P_(ij) = P(X_(t+1) = s_j | X_t = s_i)
-```
+$$
+P_{ij} = P(X_{t+1} = s_j | X_t = s_i)
+$$
 
-where X is the state at time t.
+where $X$ is the state at time $t$.
 
-This creates a transition matrix P, which is a square matrix of size nxn (n number of states) with each element P_(ij) representing the transition probability from s_i to s_j.
+This creates a transition matrix $P$, which is a square matrix of size nxn (n number of states) with each element $P_{ij}$ representing the transition probability from $s_i$ to s_j.
 
 3. Initial state distribution p_0: this is a vector that describes the initial probabilities of the system being in each state:
 
-```
+$$
 p_0 = (p0_1, p0_2, ..., p0_n)
-```
+$$
 
-where p0_i = P(X_0 = s_i)
+where $p0_i = P(X_0 = s_i)$
 
 ## Markov Property
 
-The probability of moving to next state s_(t+1) depends only on the current state s_t and not on the history of past states:
+The probability of moving to next state $s_{t+1}$ depends only on the current state $s_t$ and not on the history of past states:
 
-```
-P(X_(t+1) = s_(t+1) | X_t = s_t, X_(t-1) = s_(t-1), ..., X_0 = s_0) = P(X_(t+1) = s_(t+1) | X_t = s_t)
-```
+$$
+P(X_{t+1} = s_{t+1} | X_t = s_t, X_{t-1} = s_{t-1}, ..., X_0 = s_0) = P(X_{t+1} = s_{t+1} | X_t = s_t)
+$$
 
 ## Types of Markov Chains
 
@@ -56,11 +56,11 @@ P(X_(t+1) = s_(t+1) | X_t = s_t, X_(t-1) = s_(t-1), ..., X_0 = s_0) = P(X_(t+1) 
 
 A Markov Chain can reach a stationary distribution p where, once the system reaches this distribution, the probability of being in any particular state remains constant over time. This occurs when:
 
-```
-pP = p
-```
+$$
+p \dot P = p
+$$
 
-where p is the stationary distribution vector and P is the transition matrix.
+where $p$ is the stationary distribution vector and $P$ is the transition matrix.
 
 ## References
 
