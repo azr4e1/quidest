@@ -31,7 +31,7 @@ where $X$ is the state at time $t$.
 
 This creates a transition matrix $P$, which is a square matrix of size nxn (n number of states) with each element $P_{ij}$ representing the transition probability from $s_i$ to s_j.
 
-3. Initial state distribution p_0: this is a vector that describes the initial probabilities of the system being in each state:
+3. Initial state distribution $p_0$: this is a vector that describes the initial probabilities of the system being in each state:
 
 $$
 p_0 = (p0_1, p0_2, ..., p0_n)
@@ -57,7 +57,7 @@ $$
 A Markov Chain can reach a stationary distribution p where, once the system reaches this distribution, the probability of being in any particular state remains constant over time. This occurs when:
 
 $$
-p \dot P = p
+p \cdot P = p
 $$
 
 where $p$ is the stationary distribution vector and $P$ is the transition matrix.
