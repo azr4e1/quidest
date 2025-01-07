@@ -9,7 +9,7 @@ tags = ["machine_learning",  "math",  "search",  "chains",  "statistics",  "mark
 
 
 
-Markov Chains [markov-chains](/wiki/markov-chains/) are widely used in various machine learning applications, particularly in modeling sequential or time-series data where the assumption of the Markov Property is reasonable.
+[Markov Chains](/wiki/markov-chains/) are widely used in various machine learning applications, particularly in modeling sequential or time-series data where the assumption of the Markov Property is reasonable.
 
 ## Hidden Markov Models
 
@@ -28,4 +28,4 @@ MCMC methods are used to generate samples from a probability distribution by con
 
 - chatGPT
 
-Next -> [pagerank-algorithm](/wiki/pagerank-algorithm/)
+Next -> [Pagerank Algorithm](/wiki/pagerank-algorithm/)
