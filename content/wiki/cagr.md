@@ -20,7 +20,7 @@ The compound annual growth rate is the rate of return that an investment would n
 ## Formula
 
 $$
-CAGR = (\frac{EV}{BV}^{\frac{1}{n}} - 1) \cdot 100
+CAGR = (\left(\frac{EV}{BV}\right)^{\frac{1}{n}} - 1) \cdot 100
 $$
 
 where EV = "Ending Value", BV = "Beginning Value", n = "Number of years"
