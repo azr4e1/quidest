@@ -2,6 +2,7 @@
 date = '2025-01-16T14:16:34Z'
 title = 'Database Index'
 hideReply = true
+tags = ['database', 'computer science', 'programming', 'data', 'data science', 'big data', 'efficient', 'sql', 'relational', 'table']
 +++
 
 An index is a pointer to data in a table. An index in a database is very similar to an index in the back of a book.
