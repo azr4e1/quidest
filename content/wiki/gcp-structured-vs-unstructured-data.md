@@ -1,6 +1,6 @@
 +++
 date = '2025-01-17T10:31:18Z'
-title = 'Gcp Structured vs Unstructured Data'
+title = 'GCP Structured vs Unstructured Data'
 hideReply = true
 tags = ["certification", "engineer", "machine", "platform", "cloud", "path", "learning", "gcp", "google", 'AI', 'Infrastructure']
 +++
