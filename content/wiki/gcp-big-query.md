@@ -1,11 +1,11 @@
 +++
 date = '2025-01-22T10:35:56Z'
-title = 'Gcp Big Query'
+title = 'GCP Big Query'
 hideReply = true
 tags = ["certification", "engineer", "machine", "platform", "cloud", "path", "learning", "gcp", "google", 'AI', 'model', 'database', 'sql']
 +++
 
-[Big Query](/wiki/gcp-google-cloud-infrastructur) provides two services in one:
+[BigQuery](/wiki/gcp-google-cloud-infrastructur) provides two services in one:
 
 - Fully managed storage facility for datasets
 - Fast SQL-based analytical engine
