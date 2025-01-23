@@ -2,7 +2,7 @@
 date = '2025-01-23T14:23:02Z'
 title = 'GCP AutoML'
 hideReply = true
-tags = ["certification", "engineer", "machine", "platform", "cloud", "path", "learning", "gcp", "google", 'AI', 'model', 'database', 'sql', 'development']
+tags = ["certification", "engineer", "machine", "platform", "cloud", "path", "learning", "gcp", "google", 'AI', 'model', 'database', 'sql', 'development', 'neural architecture search', 'transfer learning']
 +++
 
 AutoML, which stands for automated machine learning, aims to automate the process to develop and deploy an ML model.
