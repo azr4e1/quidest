@@ -32,3 +32,11 @@ Gen AI models can be accessed through [Vertex AI](/wiki/gcp-vertex-ai); it offer
 4. __Model customization__: Optionally, customize Gen AI models to fit your data and use cases by further tuning them.
 5. __Results grounding__: Gen AI models return results that undergo grounding (optional) and citation checks to prevent hallucinations.
 6. __Final response__: The final response appears on the Vertex AI Studio UI after a final check through responsible AI and safety measures.
+
+
+## AI Solutions provided by Google Cloud
+
+Google Cloud provides two types of Generative AI solutions:
+
+- Vertical solutions, which focus on specific industries,
+- Horizontal solutions, which solve problems across industries
