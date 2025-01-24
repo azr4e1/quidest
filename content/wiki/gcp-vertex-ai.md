@@ -13,13 +13,13 @@ Traditional challenges of building ML are:
 - Determining the right machine learning model to train the data
 - Harnessing the required amount of computing power
 
-There also production challenges:
+There are also production challenges:
 
 - Scalability
 - Monitoring
 - Continuous integration, delivery and training
 
-Finally there ease of use challenges:
+Finally there are ease of use challenges:
 
 - tools require advanced coding skills
 - focus is taken away from model configuration
