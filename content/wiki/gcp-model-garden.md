@@ -1,6 +1,6 @@
 +++
 date = '2025-01-24T12:50:15Z'
-title = 'Gcp Model Garden'
+title = 'GCP Model Garden'
 hideReply = true
 tags = ["certification", "engineer", "machine", "platform", "cloud", "path", "learning", "gcp", "google", 'AI', 'model',  'development', 'generative', 'fine tuning', 'prompt crafting', 'distillation']
 +++
