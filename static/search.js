@@ -50,6 +50,3 @@ search.addEventListener('input', function() {
   }
   localStorage.setItem('filtered_articles', JSON.stringify(article_tree))
 })
-
-
-localStorage.setItem
