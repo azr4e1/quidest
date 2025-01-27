@@ -16,12 +16,13 @@ One GRP is one percent of all potential adult television viewers in a market. If
 
 GRPs are total impressions related to the size of the target population:
 
-```latex
-GRPs(\%) = 100 * Total Impressions (#) / Defined population (#)
-GRPs(\%) = 100 * Reach (\%) / Average frequency (#)
-```
+$$
+GRPs(\%) = 100 \cdot \frac{\text{Total Impressions (#)}}{\text{Defined population (#)}}
+GRPs(\%) = 100 \dot \frac{\text{Reach (\%)}}{\text{Average frequency (#)}}
+$$
 
 Example: If 100,000 ad impressions are displayed on multiple episodes or TV stations for a defined population of 100,000 people, the total is 100 GRPs. However, total reach is not always 100%.
 
 ## References
+
 - https://en.wikipedia.org/wiki/Gross_rating_point
