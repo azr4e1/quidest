@@ -1,7 +1,7 @@
 +++
 date = '2025-01-27T12:01:55Z'
-draft = true
 title = 'Programmatic Advertising'
+hideReply = true
 tags = ['marketing', 'acronyms', 'media', 'programmatic', 'channels', 'ooh', 'paid', 'social', 'search', 'mmm', 'attribution', 'google', 'ga4', 'cookie', 'tracking_pixel', 'coursera']
 +++
 
