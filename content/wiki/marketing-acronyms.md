@@ -68,3 +68,4 @@ Most used acronyms in digital marketing
     locator)**
 -   **UV (Unique visitor)**: a metric that shows
     you how many unique visitors were on a specific page or site
+- [**GRP**](/wiki/gross-rating-point): measures the size of an audience that an advertisement impacts
