@@ -1,6 +1,5 @@
 +++
 date = '2025-01-30T14:34:41Z'
-draft = true
 title = 'Apache Hadoop'
 hideReply = true
 tags = ['data_science', 'hardware', 'cluster', 'gcp', 'certification', 'processing', 'parallel', 'computation', 'engineering']
