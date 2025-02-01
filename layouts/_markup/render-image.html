@@ -1,5 +1,0 @@
-<img src='{{ .Destination | printf "%s%s" "/quidest/" | printf "%s" | safeURL }}'
-  {{- with .Text }} alt="{{ . }}"{{ end -}}
-  {{- with .Title }} title="{{ . }}"{{ end -}}
->
-{{- /* chomp trailing newline */ -}}

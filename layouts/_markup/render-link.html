@@ -1,6 +1,0 @@
-<a href='{{ .Destination | printf "%s%s" "/quidest/" | printf "%s" | safeURL }}'
-  {{- with .Title }} title="{{ . }}"{{ end -}}
->
-  {{- with .Text }}{{ . }}{{ end -}}
-</a>
-{{- /* chomp trailing newline */ -}}

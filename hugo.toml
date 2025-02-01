@@ -1,5 +1,5 @@
 # Basic config
-baseURL = "https://azr4e1.github.io/quidest"
+baseURL = "quidest.dev"
 theme = "hugo-bearcub"
 copyright = "Lorenzo Drumond (CC BY 4.0)"
 defaultContentLanguage = "en"
