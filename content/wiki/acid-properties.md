@@ -4,7 +4,7 @@ hideReply = true
 title = "ACID properties"
 author = "Lorenzo Drumond"
 date = "2024-10-07T11:45:57"
-tags = ["database",  "acid"]
+tags = ["database",  "acid", 'boot_dev', 'programming', 'computer_science']
 +++
 
 

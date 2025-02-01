@@ -2,7 +2,7 @@
 date = '2024-12-21T19:41:53Z'
 title = 'Machine Learning Data Structures'
 hideReply = true
-tags = ['scalar', 'machine_learning', 'data_structures', 'vector', 'matrix']
+tags = ['scalar', 'machine_learning', 'data_structures', 'vector', 'matrix', 'the_hundred_page_machine_learning_book']
 +++
 
 ## Scalar

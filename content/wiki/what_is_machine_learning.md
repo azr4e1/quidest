@@ -2,7 +2,7 @@
 date = '2024-12-21T01:14:33Z'
 hideReply = true
 title = 'What is Machine Learning'
-tags = ['feature_vector', 'machine_learning', 'supervised', 'unsupervised', 'labelled', 'policy', 'reinforcement']
+tags = ['feature_vector', 'machine_learning', 'supervised', 'unsupervised', 'labelled', 'policy', 'reinforcement', 'the_hundred_page_machine_learning_book']
 +++
 
 Machine Learning is a subfield of computer science that uses data (from nature, humans or other algorithms) to build algorithms that make predictions.

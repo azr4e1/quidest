@@ -1,19 +1,19 @@
 {{ define "main" }}
+<aside>
+  <h4>Tags</h4>
+  {{ range sort .Site.Taxonomies.tags }}
+  <a class="blog-tags" href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a>
+  {{ end }}
+</aside>
 <content>
   {{ if not .Data.Singular }}
-  <aside>
-    <h4>Tags</h4>
-    {{ range sort .Site.Taxonomies.tags }}
-    <a class="blog-tags" href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a>
-    {{ end }}
-  </aside>
   {{ end }}
   {{ if .Data.Singular }}
   <h3 class="blog-filter">{{ i18n "filtering-for" }} "{{ .Title }}"</h3>
   {{ end }}
   <ul class="blog-posts">
     {{ range .Pages }}
-    <li class="article-item" id="{{.Title}}_{{with .Params.Tags}}{{delimit . `_`}}{{end}}">
+    <li class="article-item" id="{{.Title}}_#{{with .Params.Tags}}{{delimit . `_#`}}{{end}}">
       <span>
         <i>
           <time datetime='{{ .Date.Format "2006-01-02" }}' pubdate>

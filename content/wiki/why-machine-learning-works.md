@@ -2,7 +2,7 @@
 date = '2024-12-21T17:41:53Z'
 hideReply = true
 title = 'Why Machine Learning Works'
-tags = ['feature_vector', 'machine_learning', 'supervised', 'unsupervised', 'labelled', 'policy', 'reinforcement', 'decision_boundary', 'svm', 'statistical_model', 'training']
+tags = ['feature_vector', 'machine_learning', 'supervised', 'unsupervised', 'labelled', 'policy', 'reinforcement', 'decision_boundary', 'svm', 'statistical_model', 'training', 'the_hundred_page_machine_learning_book']
 +++
 
 Machine Learning works by trying to generalize the distribution of the training data. Let's take the Support Vector Machine for example. Given feature vectors and labels (positive, negative), SVM will draw a line that best separates these two groups in a multidimensional space. In machine learning, the boundary separating the examples of different classes is called the _decision boundary_.

@@ -4,12 +4,52 @@
 {{ if .Param "math" }}
 {{ partialCached "math.html" . }}
 {{ end }}
-<script src="/quidest/search.js" defer></script>
+<meta name="custom_id" content="{{.Title}}_#{{with .Params.Tags}}{{delimit . `_#`}}{{end}}">
+<script src="/quidest/search.js" defer>
+</script>
+<script src="/quidest/prev_next.js" defer>
+</script>
 <style>
   aside {
     width: 30%;
     padding-left: 15px;
     margin-left: 15px;
     float: right;
+  }
+
+  a.next_button {
+    display: block;
+    position: fixed;
+    right: 5%;
+    top: 50%;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f1f1f1;
+    color: black;
+    border-radius: 50%;
+  }
+
+  a.prev_button {
+    display: block;
+    position: fixed;
+    left: 5%;
+    top: 50%;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f1f1f1;
+    color: black;
+    border-radius: 50%;
+  }
+
+  a.next_button:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  a.prev_button:hover {
+    background-color: #ddd;
+    color: black;
   }
 </style>
