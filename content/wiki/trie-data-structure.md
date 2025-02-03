@@ -10,7 +10,7 @@ tags = ["data",  "function",  "memory",  "structure",  "search",  "computer_scie
 
 ![trie data structure](/images/trie-data-structure.png)
 
-A trie is a specialized search tree data structure used to store and retrieve strings from a dictionary or set. Unlike a [binary search tree](/wiki/binary-search-algorithm), nodes in a trie do not store their associated key. Instead, each node's position within the trie determines its associated key, with the connections between nodes defined by individual characters rather than the entire key.
+A trie is a specialized search tree data structure used to store and retrieve strings from a dictionary or set. Unlike a [binary search tree](/wiki/binary-tree-data-structure), nodes in a trie do not store their associated key. Instead, each node's position within the trie determines its associated key, with the connections between nodes defined by individual characters rather than the entire key.
 
 Every child node shares a common prefix with its parent node, and the root node represents the empty string.
 
