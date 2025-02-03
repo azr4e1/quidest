@@ -1,6 +1,6 @@
 +++
 date = '2025-01-30T10:36:36Z'
-title = 'GCP Predictive Clv'
+title = 'GCP Predictive CLV'
 hideReply = true
 tags = ["certification", "engineer", "machine", "platform", "cloud", "path", "learning", "gcp", "google", 'AI', 'model',  'development',  'lab', 'data preparation']
 +++
