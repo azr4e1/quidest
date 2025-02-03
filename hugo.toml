@@ -50,7 +50,7 @@ enableRobotsTXT = true
   description = "quidest"
 
   # The path to your favicon
-  favicon = "/quidest/favicon.png"
+  favicon = "/favicon.png"
 
   # These images will show up when services want to generate a preview of a link
   # to your site. Ignored if `generateSocialCard = true`. For more information
