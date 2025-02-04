@@ -15,3 +15,7 @@ Keyword search relies on matching exact words in the text. It's a simple and fas
 Vector semantic similarity uses NLP to analyze the meaning of words and their _relationships_. It represents words as high-dimensional vectors, where the distance between vectors indicates their semantic similarity.
 
 Semantic search requires large amount of data to train the NLP models, and is computationally and time consuming.
+
+## References
+
+- https://docs.pinecone.io/troubleshooting/differences-between-lexical-semantic-search
