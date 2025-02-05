@@ -7,7 +7,7 @@ tags = ['machine learning', 'time series', 'algorithm', 'programming', 'statisti
 
 ![Dynamic Time Warping](/images/dynamic-time-warping.png)
 
-Dynamic time warping (DTW) is an algorithm for measuring similarity between two temporal sequences, which may vary in speed. For instance, similarities in walking could be detected using DTW, even if one person was walking faster than the other, or if there were accelerations and decelerations during the course of an observation
+__Dynamic time warping (DTW)__ is an algorithm for measuring similarity between two temporal sequences, which may vary in speed. For instance, similarities in walking could be detected using DTW, even if one person was walking faster than the other, or if there were accelerations and decelerations during the course of an observation
 
 DTW is a method that calculates an optimal match between two given sequences (e.g. time series) with certain restriction and rules:
 
