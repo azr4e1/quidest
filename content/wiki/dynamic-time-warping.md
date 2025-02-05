@@ -16,7 +16,7 @@ DTW is a method that calculates an optimal match between two given sequences (e.
 - The last index from the first sequence must be matched with the last index from the other sequence (but it does not have to be its only match)
 - The mapping of the indices from the first sequence to indices from the other sequence must be monotonically increasing, and vice versa, i.e. if $j > i$ are indices from the first seuence, then there must not be two indices $l > k$ in the other sequence, such that index $i$ is matched with $l$ and $j$ is matched with $k$.
 
-We can plot each match between the sequences $1 : M$ and $1 : N$ as a path in a $M X N$ matrix from $(1, 1)$ to $(M, N)$ such that each step is one of $(0, 1), (1, 0), (1, 1)$.
+We can plot each match between the sequences $1 : M$ and $1 : N$ as a path in a $M \times N$ matrix from $(1, 1)$ to $(M, N)$ such that each step is one of $(0, 1), (1, 0), (1, 1)$.
 
 The optimal match is denoted by the match that satisfies all the restrictions and the rules and that has the minimal cost, where the cost is computed as the sum of absolute differences, for each matched pair of indices, between their values.
 
