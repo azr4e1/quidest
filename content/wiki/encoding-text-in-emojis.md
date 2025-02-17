@@ -1,6 +1,6 @@
 +++
 date = '2025-02-14T15:16:40Z'
-draft = true
+hideReply = true
 title = 'Encoding Text in Emojis'
 tags = ['programming', 'hacker', 'tricks', 'unicode', 'variation selectors']
 +++
