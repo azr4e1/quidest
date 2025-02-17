@@ -13,7 +13,7 @@ For other writing systems, some on-screen characters may be represented by multi
 
 ## Variation Selectors
 
-Unicode designates 256 codepoints as “variation selectors”, named VS-1 to VS-256. These have no on-screen representation of their own, but are used to modify the presentation of the preceeding character.
+Unicode designates 256 codepoints as [variation selectors](https://en.wikipedia.org/wiki/Variation_Selectors_(Unicode_block)), named VS-1 to VS-256. These have no on-screen representation of their own, but are used to modify the presentation of the preceeding character.
 
 Most unicode characters do not have variations associated with them. Since unicode is an evolving standard and aims to be future-compatible, variation selectors are supposed to be preserved during transformations, even if their meaning is not known by the code handling them. So the codepoint U+0067 (“g”) followed by U+FE01 (VS-2) renders as a lowercase “g”, exactly the same as U+0067 alone. But if you copy and paste it, the variation selector will tag along with it.
 
@@ -27,7 +27,7 @@ For example, let’s say we want to encode the data [0x68, 0x65, 0x6c, 0x6c, 0x6
 
 The variation selectors are broken into two ranges of codepoints: the original set of 16 at U+FE00 .. U+FE0F, and remaining 240 at U+E0100 .. U+E01EF (ranges inclusive).
 
-## Example
+## Example in Golang
 
 ### Encoding
 
@@ -98,3 +98,7 @@ func decode(varSels string) string {
 	return message.String()
 }
 ```
+
+## References
+
+- https://paulbutler.org/2025/smuggling-arbitrary-data-through-an-emoji
