@@ -32,8 +32,7 @@ Sensitivity Analysis does not derive any expected outcome or a probability distr
 For the model given by
 
 $$
-y = f(X)
-X = [x_1, x_2, \dots, x_n]
+y = f(X), \\ \quad X = [x_1, x_2, \dots, x_n]
 $$
 
 where:
