@@ -1,7 +1,7 @@
 +++
 date = '2025-02-27T15:29:21Z'
 title = 'Decision Trees Classification'
-tags = ['machine learning', 'ML', 'machine_learning', 'programming', 'statistics', 'information gain', 'gini index', 'entropy', 'cart']
+tags = ['machine learning', 'ML', 'machine_learning', 'programming', 'statistics', 'information gain', 'gini index', 'entropy', 'cart', 'classification']
 hideReply = true
 +++
 
