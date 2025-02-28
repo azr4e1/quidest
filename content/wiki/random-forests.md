@@ -5,6 +5,8 @@ hideReply = true
 tags = ['machine learning', 'ML', 'machine_learning', 'programming', 'statistics', 'information gain', 'gini index', 'entropy', 'cart', 'classification', 'regression', 'bagging', 'boostrapping', 'aggregation', 'decision trees', 'ensamble']
 +++
 
+![Random Forest](/images/random-forest.png)
+
 [Decision trees](/wiki/decision-trees-classification) are easy to overfit to the original data; minimal changes to the original dataset can produce vastly different decision trees, meaning decision trees have high bias and low variance, making it difficult to predict out-of-sample values.
 
 **Random Forest** is a versatile and widely-used ensemble learning method that operates by constructing a multitude of decision trees during training and outputting the mode of the classes (classification) or mean prediction (regression) of the individual trees. This approach enhances predictive accuracy and controls overfitting.
