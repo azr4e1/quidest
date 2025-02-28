@@ -1,6 +1,6 @@
 +++
 date = '2025-02-28T14:31:55Z'
-title = 'Gcp Dataproc Api Example'
+title = 'GCP Dataproc Api Example'
 hideReply = true
 tags = ["certification", "engineer", "machine", "platform", "cloud", "path", "learning", "gcp", "google", 'AI', 'model',  'development',  'lab', 'data preparation']
 +++
