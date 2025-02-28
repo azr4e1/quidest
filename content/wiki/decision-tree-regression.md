@@ -23,6 +23,25 @@ The process involves recursively splitting the dataset based on feature values t
 ## From Scratch
 
 ```python
+import pandas as pd
+import numpy as np
+
+
+def split_dataset(X, y, feature_index, threshold):
+    left_mask = X[:, feature_index] <= threshold
+    right_mask = X[:, feature_index] > threshold
+    return X[left_mask], y[left_mask], X[right_mask], y[right_mask]
+
+
+def mse(y):
+    return np.mean((y - np.mean(y))**2)
+
+
+def weighted_mse(y_left, y_right):
+    total_len = len(y_left) + len(y_right)
+    return (len(y_left)/total_len) * mse(y_left) + (len(y_right)/total_len) * mse(y_right)
+
+
 class DecisionTreeRegressor:
     def __init__(self, max_depth, min_samples_split=2):
         self.max_depth = max_depth
