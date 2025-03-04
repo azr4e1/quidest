@@ -2,7 +2,7 @@
 date = '2025-01-24T11:59:24Z'
 title = 'GCP Prompt Design'
 hideReply = true
-tags = ["certification", "engineer", "machine", "platform", "cloud", "path", "learning", "gcp", "google", 'AI', 'model',  'development', 'generative', 'fine tuning', 'prompt crafting']
+tags = ["certification", "engineer", "machine", "platform", "cloud", "path", "learning", "gcp", "google", 'AI', 'model',  'development', 'generative', 'fine tuning', 'prompt crafting', 'temperature', 'topp', 'topk']
 +++
 
 Prompt design or prompt crafting is a fundamental skill for utilizing generative AI effectively.
@@ -38,9 +38,9 @@ If you designed a prompt that you think is working pretty well, you can save it 
 In addition to testing different prompts and prompt structures, there are a few model parameters you can experiment with to try to improve the quality of the responses:
 
 - Model type and version
-- Temperature: a number used to tune the degree of randomness; low -> less random (narrow the range of possible words to higher probability words), best for Q&A and summarization; high -> more random (extend the range of possible words to include lower probability words), better for creative answers
-- topP: allows the model to return a random word from the smallest subset with the sum of the likelihoods that exceeds or equals to P; e.g.  P of 0.75 means you sample from a set of words that have a cumulative probability greater than 0.75.
-- topK: lets the model randomly return a word from the top K number of words in terms of possibility
+- **Temperature**: a number used to tune the degree of randomness; low -> less random (narrow the range of possible words to higher probability words), best for Q&A and summarization; high -> more random (extend the range of possible words to include lower probability words), better for creative answers
+- **topP**: allows the model to return a random word from the smallest subset with the sum of the likelihoods that exceeds or equals to P; e.g.  P of 0.75 means you sample from a set of words that have a cumulative probability greater than 0.75.
+- **topK**: lets the model randomly return a word from the top K number of words in terms of possibility
 
 These parameters all adjust the randomness of responses by controlling how the output tokens are selected.
 
