@@ -3,7 +3,7 @@ title: "Data Engineering Mastery Plan"
 date: 2025-10-16
 draft: false
 description: "A comprehensive roadmap combining Data Engineering Zoomcamp with fundamental CS concepts for interview preparation"
-tags: ["data-engineering", "study-plan", "career-development"]
+tags: ["data-engineering", "study-plan", "career-development", "zoomcamp"]
 ---
 
 ## Overview
