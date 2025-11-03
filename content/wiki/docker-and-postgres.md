@@ -76,3 +76,5 @@ ENTRYPOINT [ "python", "pipeline.py" ]
 ```
 
 We can build like before, and when running something like `docker run test:pandas 2023-01-01`, it will print `Job finished successfully for day = 2023-01-01.`
+
+## Postgres in Docker
