@@ -103,9 +103,27 @@ Flow-level variables define key/value pairs that tasks can access using {{ vars.
 
 The most important part of a flow is the list of tasks that will be run sequentially when the flow is executed.
 
+## Namespaces
+
+Namespaces are used to group flows and provide structure. Keep in mind that a flow’s allocation to a namespace is immutable. Once a flow is created, you cannot change its namespace. If you need to change the namespace of a flow, create a new flow within the desired namespace and delete the old flow.
+
+## Labels
+
+To add another layer of organization, use labels to group flows with key–value pairs. In short, labels are customizable tags to simplify monitoring and filtering of flows and executions.
+
+## Description(s)
+
+You can optionally add a description property to document your flow's purpose or other useful information. The description is a string that supports markdown syntax. This markdown description is rendered and displayed in the UI.
+
 ## Task
 
 A task is a single action in a flow. A task can have properties, use flow inputs and other task's outputs, perform an action, and produce an output.
+
+Tasks are defined as a list. By default, all tasks in the list will be executed sequentially — the second task will start as soon as the first one finishes successfully.
+
+Kestra provides additional customization to run tasks in parallel, iterate (sequentially or in parallel) over a list of items, or allow specific tasks to fail without stopping the flow. These kinds of actions are called Flowable tasks because they define the flow logic.
+
+A task in Kestra must have an id and a type. Other properties depend on the task type. You can think of a task as a step in a flow that should execute a specific action, such as running a Python or Node.js script in a Docker container or loading data from a database.
 
 There are two kinds of tasks in Kestra:
 
