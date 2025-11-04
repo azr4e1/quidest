@@ -154,6 +154,25 @@ Inputs of type FILE are uploaded to Kestra's internal storage and made available
 
 Flow inputs can be seen in the Overview tab of the Execution page.
 
+Similar to tasks, inputs is defined as a list of key–value pairs. Each input must have an id and a type. You can also set defaults for each input. Setting default values for an input is always recommended, especially if you want to run your flow on a schedule.
+
+To retrieve an input value, you need to identify the input in an expression. In Kestra, bracket notation {{ }} is used to wrap an expression. For an input, follow this general {{ inputs.input_id }} syntax. In the example below, the input id is set to user, and it's referenced in the task message as `{{ inputs.user }}`:
+
+```yml
+id: inputs_demo
+namespace: company.team
+
+inputs:
+  - id: user
+    type: STRING
+    defaults: Rick Astley
+
+tasks:
+  - id: hello
+    type: io.kestra.plugin.core.log.Log
+    message: Hey there, {{ inputs.user }}
+```
+
 ## Outputs
 
 Outputs are results produced by tasks or flows. Outputs can be reused in later tasks or downloaded if stored in internal storage.
@@ -166,6 +185,17 @@ You can view:
 - flow outputs in the Overview tab of the Execution page
 
 If an output is a file from the internal storage, it will be available to download.
+
+
+Outputs let you pass data between tasks and flows.
+
+Tasks and flows can generate outputs that are passed to downstream processes. These outputs can be variables or files stored in the internal storage.
+
+Similar to inputs, use expressions to access outputs in downstream tasks. Use the syntax `{{ outputs.task_id.output_property }}` to retrieve a specific output value of a task.
+
+If your task id contains one or more hyphens (-), wrap the task id in square brackets, for example: `{{ outputs['task-id'].output_property }}`.
+
+To see which outputs have been generated during a flow execution, go to the Outputs tab on the Execution page
 
 ## Revision
 
