@@ -91,6 +91,18 @@ pluginDefaults:
       level: ERROR
 ```
 
+## Plugin defaults
+
+Use pluginDefaults to avoid repeating common configurations across multiple tasks of the same type. This is a list of default task properties that will be applied to each task of a certain type inside your flow.
+
+## Variables
+
+Flow-level variables define key/value pairs that tasks can access using {{ vars.key }}.
+
+## List of tasks
+
+The most important part of a flow is the list of tasks that will be run sequentially when the flow is executed.
+
 ## Task
 
 A task is a single action in a flow. A task can have properties, use flow inputs and other task's outputs, perform an action, and produce an output.
