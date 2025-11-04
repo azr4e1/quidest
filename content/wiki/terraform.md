@@ -216,4 +216,8 @@ variable "gcs_storage_class" {
 
 so we can define variables using the `variable` keyword, and then access the value through the `var` namespace in the `main.tf` file.
 
+If a default value is set, the variable is optional. Otherwise, the variable is required. If you run terraform plan now, Terraform will prompt you for the values for the variables without defaults.
+
+You can populate variables using values from a file. Terraform automatically loads files called `terraform.tfvars` or matching `*.auto.tfvars` in the working directory when running operations.
+
 For more, look at the documentation: [Get Started](https://developer.hashicorp.com/terraform/tutorials/gcp-get-started)
