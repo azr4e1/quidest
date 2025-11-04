@@ -97,6 +97,8 @@ this example will create a bucket with specified settings, and will also create 
 
 To download the required provider, we can run `terraform init`. This will download the binary of the provider in `.terraform` folder. To see the planned action that terraform will take to create our infrastructure, we can use `terraform plan`. To act on those actions, we can run `terraform apply`. This will create a `.tfstate` state json file describing the current state of the infrastructure. Finally, if we want to take down what we created, we can run `terraform destroy`.
 
+You can visualize the state file in a nice format with the `terraform show` command.
+
 
 The main files for a terraform declarations are:
 - main.tf (the main file)
@@ -219,5 +221,28 @@ so we can define variables using the `variable` keyword, and then access the val
 If a default value is set, the variable is optional. Otherwise, the variable is required. If you run terraform plan now, Terraform will prompt you for the values for the variables without defaults.
 
 You can populate variables using values from a file. Terraform automatically loads files called `terraform.tfvars` or matching `*.auto.tfvars` in the working directory when running operations.
+
+# Outputs
+
+When building complex infrastructure, Terraform stores hundreds or thousands of attribute values for all your resources. As a user of Terraform, you may only be interested in a few values of importance. Outputs designate which data to display. This data is outputted when apply is called, and can be queried using the terraform output command.
+
+Define an output for the IP address of the instance that Terraform provisions. Create a file called outputs.tf with the following contents:
+
+```terraform
+output "ip" {
+  value = google_compute_instance.vm_instance.network_interface.0.network_ip
+}
+```
+
+You must apply this configuration before you can use these output values. Apply your configuration now. Respond to the confirmation prompt with yes.
+
+Now query the outputs with the terraform output command:
+
+```bash
+terraform output
+# ip = "10.128.0.3"
+```
+
+You can use Terraform outputs to connect your Terraform projects with other parts of your infrastructure, or with other Terraform projects.
 
 For more, look at the documentation: [Get Started](https://developer.hashicorp.com/terraform/tutorials/gcp-get-started)
