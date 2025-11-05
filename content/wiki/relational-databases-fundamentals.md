@@ -246,6 +246,8 @@ Normalization rules divide large tables into smaller tables and join them using 
 - Eliminate redundant (repetitive) data
 - Ensure that data is stored logically.
 
+There are a few rules for database normalization. Each rule is called a "normal form." If the first rule is observed, the database is said to be in "first normal form." If the first three rules are observed, the database is considered to be in "third normal form." Although other levels of normalization are possible, third normal form is considered the highest level necessary for most applications.
+
 ## First Normal Form (1NF):
 
 - Eliminate repeating groups in individual tables.
@@ -265,8 +267,14 @@ Records shouldn't depend on anything other than a table's primary key (a compoun
 
 ## Third Normal Form (3NF):
 
-- Must be in 2NF
-- No transitive dependencies (non-key attributes depend only on the primary key)
+Eliminate fields that don't depend on the key.
+Values in a record that aren't part of that record's key don't belong in the table. In general, anytime the contents of a group of fields may apply to more than a single record in the table, consider placing those fields in a separate table.
+
+For example, in an Employee Recruitment table, a candidate's university name and address may be included. But you need a complete list of universities for group mailings. If university information is stored in the Candidates table, there is no way to list universities with no current candidates. Create a separate Universities table and link it to the Candidates table with a university code key.
+
+EXCEPTION: Adhering to the third normal form, while theoretically desirable, isn't always practical. If you have a Customers table and you want to eliminate all possible interfield dependencies, you must create separate tables for cities, ZIP codes, sales representatives, customer classes, and any other factor that may be duplicated in multiple records. In theory, normalization is worth pursuing. However, many small tables may degrade performance or exceed open file and memory capacities.
+
+It may be more feasible to apply third normal form only to data that changes frequently. If some dependent fields remain, design your application to require the user to verify all related fields when any one is changed.
 
 ## Boyce-Codd Normal Form (BCNF):
 
@@ -276,6 +284,74 @@ Records shouldn't depend on anything other than a table's primary key (a compoun
 Fourth Normal Form (4NF) and Fifth Normal Form (5NF) exist but are rarely applied in practice.
 
 **Denormalization**: Intentionally introducing redundancy for performance reasons. Trade data integrity for query speed.
+
+### Example
+
+These steps demonstrate the process of normalizing a fictitious student table.
+
+1. Unnormalized table:
+
+| Student# | Advisor | Adv-Room | Class1 | Class2 | Class3 |
+|------|-------|-----|--------|--------|--------|
+| 1022 | Jones | 412 | 101-07 | 143-01 | 159-02 |
+| 4123 | Smith | 216 | 101-07 | 143-01 | 179-04 |
+
+2. First normal form: No repeating groups
+
+Tables should have only two dimensions. Since one student has several classes, these classes should be listed in a separate table. Fields Class1, Class2, and Class3 in the above records are indications of design trouble.
+
+Spreadsheets often use the third dimension, but tables shouldn't. Another way to look at this problem is with a one-to-many relationship, don't put the one side and the many sides in the same table. Instead, create another table in first normal form by eliminating the repeating group (Class#), as shown in the following example:
+
+| Student# | Advisor | Adv-Room | Class# |
+|------|-------|-----|--------|
+| 1022 | Jones | 412 | 101-07 |
+| 1022 | Jones | 412 | 143-01 |
+| 1022 | Jones | 412 | 159-02 |
+| 4123 | Smith | 216 | 101-07 |
+| 4123 | Smith | 216 | 143-01 |
+| 4123 | Smith | 216 | 179-04 |
+
+3. Second normal form: Eliminate redundant data
+
+Note the multiple Class# values for each Student# value in the above table. Class# isn't functionally dependent on Student# (primary key), so this relationship isn't in second normal form.
+
+The following tables demonstrate second normal form:
+
+**Students**:
+
+| Student# | Advisor | Adv-Room |
+|------|-------|-----|
+| 1022 | Jones | 412 |
+| 4123 | Smith | 216 |
+
+**Registration**:
+
+| Student# | Class# |
+|------|--------|
+| 1022 | 101-07 |
+| 1022 | 143-01 |
+| 1022 | 159-02 |
+| 4123 | 101-07 |
+| 4123 | 143-01 |
+| 4123 | 179-04 |
+
+4. Third normal form: Eliminate data not dependent on key
+
+In the last example, Adv-Room (the advisor's office number) is functionally dependent on the Advisor attribute. The solution is to move that attribute from the Students table to the Faculty table, as shown below:
+
+**Students**:
+
+| Student# | Advisor |
+|------|-------|
+| 1022 | Jones |
+| 4123 | Smith |
+
+**Faculty**:
+
+| Name | Room | Dept |
+|-------|-----|----|
+| Jones | 412 | 42 |
+| Smith | 216 | 42 |
 
 # Postgres Cheatsheet
 
