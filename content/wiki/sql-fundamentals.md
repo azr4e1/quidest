@@ -1,6 +1,6 @@
 +++
 date = '2025-11-05T14:03:31Z'
-title = 'Sql Fundamentals'
+title = 'SQL Fundamentals'
 hideReply = true
 tags = ["data-engineering", "study-plan", "career-development", "zoomcamp"]
 +++
