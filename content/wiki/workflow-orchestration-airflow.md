@@ -38,3 +38,21 @@ Operators can be divided into three main categories:
 1. Action operators: any operator that execute something
 2. Transfer operator: Perform transfer operations that move data between two systems
 3. Sensor operator: wait for an event before executing the next task.
+
+# Core Components
+
+1. __API Server__ - FastAPI server serving the UI and handling task execution requests.
+2. __Scheduler__ - Schedules tasks when dependencies are fulfilled.
+3. __DAG File Processor__ - Dedicated process for parsing DAGs.
+4. __Metadata Database__ - A database where all metadata are stored.
+5. __Executor__ - Defines _how_ tasks are executed. It does _not_ execute the tasks.
+6. __Queue__ - Defines the _execution task order_.
+7. __Worker__ - Process executing the tasks, defined by the executor.
+8. __Triggerer__ - Process running __asyncio__ to support deferrable operators.
+
+## Lifecycle of a DAG
+
+1. You create the DAG and add it to the DAG folder
+2. Every 5 minutes by default, the DAG processor checks the DAG folder, parses and serializes the DAG into the Metadata database
+3. The Scheduler reads from the metadata database to check for new workflows to run
+4. The scheduler creates and schedules new Task Instances and pass them to the Executor
