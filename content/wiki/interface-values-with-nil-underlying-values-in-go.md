@@ -15,7 +15,7 @@ In some languages this would trigger a null pointer exception, but in Go it is c
 Note that an interface value that holds a nil concrete value is itself non-nil.
 
 E.g.:
-```go
+```golang
 package main
 
 import "fmt"

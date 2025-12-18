@@ -17,7 +17,7 @@ The zero value of a map is `nil`. A nil map has no keys, nor can keys be added.
 The `make` function returns a map of the given type, initialized and ready for use.
 
 A map literal in go is defined like this:
-```go
+```golang
 catalog := map[int]Book{
   1: Book{ID: 1, Title: "For the Love of Go"}
 }
@@ -26,7 +26,7 @@ catalog := map[int]Book{
 so you specify the type of the key inside square brackets, and the type of the values afterwards.
 
 If the top-level type is just a type name, you can omit it from the elements of the literal.
-```go
+```golang
 catalog := map[int]Book{
   1: {ID: 1, Title: "For the Love of Go"}
 }
@@ -34,28 +34,28 @@ catalog := map[int]Book{
 
 ## Operations
 To access elements, you just need to specify their key in square brackets:
-```go
+```golang
 catalog[1]
 ```
 
 To insert or update an element:
-```go
+```golang
 catalog[key] = elem
 ```
 
 To delete an element:
-```go
+```golang
 delete(catalog, key)
 ```
 
 Test that a key is present with a two-value assignment:
-```go
+```golang
 val, ok := catalog[key]
 ```
 
 `ok` will return `true` if `key` is in the map, otherwise `false`. In the latter, `val` will be zero value.
 
-```go
+```golang
 package main
 
 import "fmt"

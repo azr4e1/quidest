@@ -9,7 +9,7 @@ tags = ["golang",  "for_the_love_of_go",  "heap",  "methods",  "stringers",  "pa
 
 
 One of the most common interfaces is `Stringer` defined by the `fmt` package:
-```go
+```golang
 type Stringer interface {
   String() string
 }
@@ -18,7 +18,7 @@ type Stringer interface {
 A `Stringer` is a type that can describe itself as a string. The `fmt` package look for this interface to print values.
 
 E.g.:
-```go
+```golang
 package main
 
 import "fmt"

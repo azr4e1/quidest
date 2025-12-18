@@ -21,14 +21,14 @@ The init statement will often be a short variable declaration, and the variables
 The loop will stop iterating once the boolean condition evaluates to false.
 
 
-```go
+```golang
 for x:= 0; x < 10; x++ {
   fmt.Println(x)
 }
 ```
 
 The init and post statement are optional
-```go
+```golang
 package main
 
 import "fmt"

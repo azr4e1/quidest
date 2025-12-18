@@ -21,7 +21,7 @@ When we move the pointer forward over an element e:
 
 When we are done, the current candidate is the majority element, if there is a majority.
 
-```go
+```golang
 type Vote struct {
 	Candidate int
 	Vote      int

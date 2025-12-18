@@ -10,7 +10,7 @@ tags = ["nil",  "pointer",  "heap",  "interface",  "empty",  "assertion",  "pass
 
 A type assertion provides access to an interface value's underlying concrete value.
 
-```go
+```golang
 t := i.(T)
 ```
 
@@ -20,7 +20,7 @@ If `i` does not hold a `T`, the statement will trigger a panic.
 
 To test whether an interface value holds a specific type, a type assertion can return two values: the underlying value and a boolean value that reports whether the assertion succeeded.
 
-```go
+```golang
 t, ok := i.(T)
 ```
 

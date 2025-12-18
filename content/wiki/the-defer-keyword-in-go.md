@@ -9,7 +9,7 @@ tags = ["expression",  "golang",  "body",  "variadic",  "parameters",  "bubble",
 
 
 Sometimes we need to clean up resources, like when we open a file: we need to close the handle before we exit. We could do something like:
-```go
+```golang
 f, err := os.Open("testdata/somefile.txt")
 ... // do something with f
 f.Close()
@@ -21,7 +21,7 @@ To make sure the `f.Close()` line is executed no matter what, we can use the `de
 
 A `defer` statements takes some function call and _defers_ it, that is, it doesn't call the function now, but it remembers to call it right before the function exits:
 
-```go
+```golang
 f, err := os.Open("testdata/somefile.txt")
 if err != nil {
   return err

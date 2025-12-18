@@ -13,7 +13,7 @@ When you have several assignments to do, Go has a nice feature to help you: the 
 Suppose we have three variables a, b, and c, and we want to assign them the values 1, 2, and 3 respectively.
 
 We can write
-```go
+```golang
 a, b, c := 1, 2, 3
 ```
 

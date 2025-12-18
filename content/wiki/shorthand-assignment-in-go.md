@@ -9,7 +9,7 @@ tags = ["programming",  "type",  "golang",  "zero",  "default",  "variables"]
 
 
 Go has a shorthand for both declaring and assigning a variable:
-```go
+```golang
 x := 1
 ```
 

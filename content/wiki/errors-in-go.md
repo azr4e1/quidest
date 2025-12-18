@@ -11,14 +11,14 @@ tags = ["pointer",  "errors",  "stack",  "for_the_love_of_go",  "interface",  "m
 Go programs express error state with `error` values.
 
 The `error` type is a built-in interface similar to `fmt.Stringer`:
-```go
+```golang
 type error interface {
   Error() string
 }
 ```
 
 functions often return an `error` value, and calling code should handle errors by testing whether the error equals to `nil`:
-```go
+```golang
 i, err := strconv.Atoi("42")
 if err != nil {
     fmt.Printf("couldn't convert number: %v\n", err)

@@ -12,7 +12,7 @@ The type `[n]T` is an array of `n` values of type `T`.
 
 The expression
 
-```go
+```golang
 var a [10]int
 ```
 
@@ -21,7 +21,7 @@ declares a variable `a` as an array of ten integers.
 An array's length is part of its type, so arrays cannot be resized.
 
 An array literal is declared as:
-```go
+```golang
 names := [4]string{"John", "Paul", "George", "Ringo"}
 ```
 

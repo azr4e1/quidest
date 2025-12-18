@@ -8,13 +8,13 @@ tags = ["decrement",  "golang",  "increment",  "programming"]
 +++
 
 
-```go
+```golang
 x++
 ```
 
 will increase the value of `x` by 1.
 
-```go
+```golang
 x--
 ```
 

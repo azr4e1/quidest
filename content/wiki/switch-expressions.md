@@ -9,7 +9,7 @@ tags = ["switch",  "flow",  "golang",  "cascade",  "path",  "break",  "value",  
 
 
 If we want to take conditional actions on the value of some variable, `switch` gives us a handy shortcut: the _switch expression_:
-```go
+```golang
 switch x {
 case 1:
     fmt.Println("one")
@@ -22,7 +22,7 @@ case 3:
 We say this statement switches on x, that is, the different cases represent different possible values of the switch expression x. You can use any Go expression here instead of x, providing that it evaluates to a value of the same type as your switch cases.
 
 You can supply multiple values in the same case, as a comma-separated list. If any of the values match, the case will be triggered:
-```go
+```golang
 switch x {
   case 1, 2, 3:
     fmt.Println("one, two, or three")

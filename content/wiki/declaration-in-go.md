@@ -9,7 +9,7 @@ tags = ["basics",  "assignment",  "programming",  "declaration",  "golang",  "me
 
 
 A variable in Go comes to existence via _declaration_:
-```go
+```golang
 var b string
 ```
 

@@ -13,7 +13,7 @@ Some GO functions can take a variable number of parameters: these are called _va
 To define a variadic function in Go, we need to use the `...` symbol, followed by a type.
 
 The `...` indicates that there can be zero, one, two or any number of parameters of that type to the function:
-```go
+```golang
 func AddMany(inputs ...float64) float64 {
   var total float64
   for _, val := range inputs {

@@ -10,12 +10,12 @@ tags = ["thread",  "computer_science",  "process",  "scheduler",  "golang",  "co
 
 A _goroutine_ is a lightweight thread managed by the Go runtime.
 
-```go
+```golang
 go f(x, y, z)
 ```
 
 starts a new goroutine running
-```go
+```golang
 f(x, y, z)
 ```
 
@@ -23,7 +23,7 @@ The evaluation of `f`, `x`, `y`, `z` happens in the current goroutine and the ex
 
 Goroutines run in the same address space, so access to shared memory must by synchronized. The `sync` package provides useful primitives, although you won't need them much in Go as there are other primitives.
 
-```go
+```golang
 package main
 
 import (

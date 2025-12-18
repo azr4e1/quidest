@@ -10,7 +10,7 @@ tags = ["programming",  "control",  "statement",  "flow",  "basics",  "golang", 
 
 An if statement begins with the keyword if, followed by some expression whose value is true or false. This is the conditional expression which determines whether or not the code in the if statement will be executed.
 
-```go
+```golang
 if x > 0 {
     fmt.Println("x is positive")
 }
@@ -19,7 +19,7 @@ if x > 0 {
 ## Else statements
 Whereas an if statement on its own just does or doesn’t do something based on the condition, an if ... else statement does one thing or another (but never both).
 
-```go
+```golang
 fmt.Println("Let's see what the sign of x is:")
 if x <= 0 {
     fmt.Println("x is zero or negative")
@@ -30,7 +30,7 @@ fmt.Println("Well, that clears that up!")
 ```
 
 You can also write `else if` statements:
-```go
+```golang
 fmt.Println("Let's see what the sign of x is:")
 if x < 0 {
     fmt.Println("x negative")

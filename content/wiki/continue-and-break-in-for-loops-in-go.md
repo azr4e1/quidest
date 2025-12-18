@@ -9,7 +9,7 @@ tags = ["programming",  "loops",  "range",  "break",  "init",  "flow",  "assignm
 
 
 If we want to skip onto the next element in succession in a for loop, we can use the `continue` keyword:
-```go
+```golang
 for _, el := range employees {
   if !e.IsCurrent {
     continue
@@ -19,7 +19,7 @@ for _, el := range employees {
 ```
 
 When we need to terminate the loop early, we can use the `break` keyword:
-```go
+```golang
 for _, e := range employees {
     if MoneyLeft() <= 0 {
         fmt.Println("Oops, out of cash!")

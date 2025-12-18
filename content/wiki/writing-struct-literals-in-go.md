@@ -10,7 +10,7 @@ tags = ["programming",  "type",  "golang",  "composite",  "struct",  "github",  
 
 
 E.g.
-```go
+```golang
 Customer{
   Name: "John Arundel",
   Email: "john.arundel@gmail.com",

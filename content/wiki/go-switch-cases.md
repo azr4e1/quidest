@@ -10,7 +10,7 @@ tags = ["golang",  "flow",  "cascade",  "programming",  "break",  "switch",  "fa
 
 Switch cases is a conditional statement that let's us specify any number of _cases_ (possible conditions), linking each case to a different code path.
 
-```go
+```golang
 switch {
   case x < 0:
     fmt.Println("negative")
@@ -37,7 +37,7 @@ The special case `default` matches only if no other case has been matched.
 
 If we want to interrupt the execution of a case early, we can use the `break` keyword. The execution will resume from the end of the `switch` statement.
 
-```go
+```golang
 switch x {
 case 1:
     if SomethingWentWrong() {

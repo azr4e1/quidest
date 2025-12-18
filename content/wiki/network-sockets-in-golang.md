@@ -12,7 +12,7 @@ Network sockets are used for communication between processes on different machin
 
 In golang, network sockets are created using the `net.Dial` or `net.Listen` functions, with a network type such as `TCP` or `UDP`.
 
-```go
+```golang
 // create a TCP socket and listen for incoming connections.
 socker, err := net.Listen("tcp", ":8000")
 if err != nil {

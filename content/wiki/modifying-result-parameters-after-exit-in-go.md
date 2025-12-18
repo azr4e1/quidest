@@ -13,7 +13,7 @@ The `defer` keyword is useful for clean up operations. However sometimes we want
 Suppose we have some function that writes data to a file, and returns a `error` result to indicate whether is succeeded.
 
 We want to defer closing the file. However, the closing operation itself could fail. In that case we need to return error. But since the error happens in the deferred function, the return value has already been set to be `nil`:
-```go
+```golang
 ... // we open f
 defer f.Close()
 ... // write to f
@@ -21,7 +21,7 @@ return nil
 ```
 
 We can defer _any_ function call. So instead of deferring `f.Close()` directly, we could defer a wrapper function literal:
-```go
+```golang
 defer func() {
   closeErr = f.Close()
   if closeErr != nil {
@@ -31,7 +31,7 @@ defer func() {
 ```
 
 However we can do even better: if we name this function's error result parameter `err`, then it's declared inside the function. A function literal is a closure on the function's variables, therefore we can access `err` from inside the closure:
-```go
+```golang
 defer func() {
   closeErr = f.Close()
   if closeErr != nil {

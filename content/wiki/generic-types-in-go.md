@@ -10,7 +10,7 @@ tags = ["generics",  "type",  "parameters",  "generic_types",  "comparable",  "g
 
 In addition to generic functions, Go also supports generic types. A type can be parametrized with a type parameter, which could be useful for implementing generic data structures.
 
-```go
+```golang
 package main
 
 // List represents a singly-linked list that holds

@@ -14,7 +14,7 @@ If we want to break out of both loops from inside the inner loop, we can use a _
 
 A label in Go is simply a way of giving a name to a particular location in the code, so that we can refer to it later. The syntax for a label is just the name of the label followed by a colon.
 
-```go
+```golang
 outer:
     for x := 0; x < 10; x++ {
         for y := 0; y < 10; y++ {

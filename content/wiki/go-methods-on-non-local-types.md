@@ -11,12 +11,12 @@ tags = ["types",  "golang",  "methods",  "non_local",  "programming",  "custom",
 We cannot add methods to _non-local_ types, that is, types not defined in our package.
 
 We can however create a new type that inherits from the type we want to add the method too:
-```go
+```golang
 type MyInt int
 ```
 
 Now, `MyInt` is a local type we can add methods to.
-```go
+```golang
 func (i MyInt) Twice() MyInt {
     return i * 2
 }
@@ -25,7 +25,7 @@ func (i MyInt) Twice() MyInt {
 Careful that Go considers `int` and `MyInt` two distinct types. You can’t pass an `int` value where a `MyInt` is expected, and vice versa.
 
 This means we have to convert `int`s to `MyInt`s using _type conversion_:
-```go
+```golang
 input := MyInt(9)
 ```
 

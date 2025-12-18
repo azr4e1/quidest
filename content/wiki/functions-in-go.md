@@ -13,7 +13,7 @@ A function in Go is declared by specifying name, input parameters, result that i
 Functions in Go are declared at _package_ level. Named functions cannot be declared inside other functions.
 
 A function declaration is introduced by the keyword _func_:
-```go
+```golang
 func double(x float64) float64 {
   return x * 2
 }
@@ -22,19 +22,19 @@ func double(x float64) float64 {
 In the parameter list, we need to give the type expected for each parameter.
 
 For multiple parameter, we write a comma-separated list:
-```go
+```golang
 func add(x float64, y float64, z float64) float64 {
   return x + y + z
 }
 ```
 
 If the sequence of parameters have the same type, we can write it shorter:
-```go
+```golang
 func add(x, y, z float 64) float 64 {
 ```
 
 For the results, we also need to specify the type with a comma-separated list:
-```go
+```golang
 func location() (float64, float64, error) {
 ```
 
@@ -50,12 +50,12 @@ The statements of a function body are not executed until the function is called.
 We can call a function by giving its name, followed by some arguments in brackets.
 
 A function call that returns a value is an _expression_. It can be combined with other expressions:
-```go
+```golang
 answer := 3 * (double(2.5) + 7)
 ```
 
 Functions can return multiple values. The only thing we can do with multiple results is to use them in a _tuple assignment_:
-```go
+```golang
 lat, long, err := location()
 ```
 
@@ -63,7 +63,7 @@ lat, long, err := location()
 If a function is declared with no results parameters, it implicitly exits when the end is reached.
 
 To return before that point we can use a `return` statement:
-```go
+```golang
 if err != nil {
   return
 }

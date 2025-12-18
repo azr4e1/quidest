@@ -17,7 +17,7 @@ A pointer holds the memory address of a value.
 The `&` operator generates a pointer to its operand.
 
 E.g.:
-```go
+```golang
 Double(&x)
 ```
 
@@ -33,7 +33,7 @@ Inside the function, you can't do operations with the pointer itself. Instead, y
 The `*` operator denotes the pointer's underlying value.
 
 E.g.:
-```go
+```golang
 func Double(input *int) {
   *input *= 2
 }

@@ -13,7 +13,7 @@ A data type made up of several values that you can treat as a single unit is cal
 A `struct` in Go groups together related pieces of data, called _fields_.
 
 E.g.:
-```go
+```golang
 // Customer represents information about a customer.
 type Customer struct {
   Name string

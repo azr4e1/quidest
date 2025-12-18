@@ -9,7 +9,7 @@ tags = ["snippet",  "golang",  "unix_domain_socket"]
 
 
 Example of how to use UDS to create a simple echo server:
-```go
+```golang
 package main
 import (...)
 

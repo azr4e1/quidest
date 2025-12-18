@@ -15,7 +15,7 @@ A variable is a name identifying a particular place in the computer's memory tha
 A string variable can only hold string values, etc.
 
 In Go, we _declare_ a variable and its type with the following syntax
-```go
+```golang
 var title string
 var copies int
 ```

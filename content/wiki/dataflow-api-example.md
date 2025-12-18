@@ -9,7 +9,7 @@ Let's create a streaming pipeline using Dataflow templates. We'll use the Pub/Su
 
 Create a dataset called `taxirides`:
 
-```shell
+```bash
 bq mk taxirides
 ```
 

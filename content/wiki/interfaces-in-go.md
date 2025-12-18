@@ -16,7 +16,7 @@ We say a type _implements_ an interface if the type has all the methods defined 
 A value of interface type can hold any value that implements those methods.
 
 E.g.
-```go
+```golang
 package main
 
 import (

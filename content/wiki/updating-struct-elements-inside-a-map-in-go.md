@@ -9,7 +9,7 @@ tags = ["programming",  "golang",  "struct",  "for_the_love_of_go",  "map",  "el
 
 
 Go doesn't allow you to modify fields of map elements directly like this:
-```go
+```golang
 catalog[1].Title = "For the Love of Go"
 // This doesn't work
 
@@ -18,7 +18,7 @@ catalog[1].Title = "For the Love of Go"
 ```
 
 We have to get the element out of the map, assign it to some variable, and modify the variable instead. We can then use the modified value to overwrite the original book:
-```go
+```golang
 b := catalog[1]
 b.Title = "For the Love of Go"
 catalog[1] = b

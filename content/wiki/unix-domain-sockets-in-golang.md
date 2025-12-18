@@ -19,7 +19,7 @@ The processes communicate by reading and writing to the same socket file, which 
 
 In Golang, UDS are created using the `net.Dial` client or `net.Listen` server functions, with the `unix` network type:
 
-```go
+```golang
 socket, err := net.Listen("unix", "/tmp/mysocket.sock")
 if err != nil {
   panic(err)

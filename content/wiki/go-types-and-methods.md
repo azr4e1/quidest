@@ -13,7 +13,7 @@ It’s quite common to deal with things in our programs that represent objects o
 We use Go’s struct keyword to define types to represent objects like this in Go programs.
 
 E.g.:
-```go
+```golang
 type Book struct {
     Title  string
     Author string
@@ -29,12 +29,12 @@ type Book struct {
 However objects have also _behaviours_ that we may want to represent; that is, some logic in the form of code that produces dynamic results.
 
 We could write functions that take a struct as parameter and perform actions on its fields. This is common enough that Go has a shorthand for this: _methods_:
-```go
+```golang
 book.SomeAction()
 ```
 
 A method in Go is defined similarly to a function, but we need to specify a _receiver_: that is, the object that owns the method:
-```go
+```golang
 func (b Book) NetPriceCents() int {
     saving := b.PriceCents * b.DiscountPercent / 100
     return b.PriceCents - saving
@@ -45,7 +45,7 @@ A _method_ is a function with a special _receiver_ argument.
 
 The receiver appears in its own argument list between the `func` keyword and the method name.
 
-```go
+```golang
 package main
 
 import (

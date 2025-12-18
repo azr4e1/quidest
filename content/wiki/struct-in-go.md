@@ -12,7 +12,7 @@ A `struct` in Go is a structured data type: something that contains multiple dif
 
 A `struct` is a colection of fields.
 
-```go
+```golang
 package main
 
 import "fmt"
@@ -28,7 +28,7 @@ func main() {
 ```
 
 Struct fields are accessed using a dot.
-```go
+```golang
 package main
 
 import "fmt"
@@ -52,7 +52,7 @@ You can list just a subset of fields by using the `Name: ` syntax. (And the orde
 The special prefix & returns a pointer to the `struct` value.
 
 E.g.:
-```go
+```golang
 package main
 
 import "fmt"

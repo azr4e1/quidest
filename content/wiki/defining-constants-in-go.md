@@ -10,13 +10,13 @@ tags = ["values",  "constants",  "define",  "variables",  "golang",  "sets",  "p
 
 We define a constant with the `const` keyword:
 
-```go
+```golang
 const CategoryAutobiography = "Autobiography"
 ```
 
 We can group multiple constants between brackets:
 
-```go
+```golang
 const (
     CategoryAutobiography = "Autobiography"
     CategoryLargePrintRomance = "Large Print Romance"
@@ -25,7 +25,7 @@ const (
 ```
 
 When the set of constants need to be of a certain type, we can specify the type for the first constant, and the rest will infer it automatically:
-```go
+```golang
 type Category int
 
 const (

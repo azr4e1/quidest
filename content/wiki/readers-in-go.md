@@ -14,7 +14,7 @@ The Go standard library contains many implementations of this interface, includi
 
 The `io.Reader` interface has a `Read` method:
 
-```go
+```golang
 func (T) Read(b []byte) (n int, err error)
 ```
 
@@ -22,7 +22,7 @@ Read populates the given byte slice with data and returns the number of bytes po
 
 The example code creates a `strings.Reader` and consumes its output 8 bytes at a time.
 
-```go
+```golang
 package main
 
 import (

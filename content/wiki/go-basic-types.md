@@ -10,7 +10,7 @@ tags = ["rune",  "golang",  "int",  "basic",  "type",  "blocks",  "float",  "fac
 
 Go's basic types are
 
-```go
+```golang
 bool
 
 string
@@ -30,7 +30,7 @@ complex64 complex128
 
 The example shows variables of several types, and also that variable declarations may be "factored" into blocks, as with import statements.
 E.g.:
-```go
+```golang
 package main
 
 import (

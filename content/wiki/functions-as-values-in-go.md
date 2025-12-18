@@ -15,7 +15,7 @@ In Go, functions are values. We can do anything with a function that we could do
 
 
 To declare a variable with a function type, we can write:
-```go
+```golang
 var function func(float64, float64) float64
 ```
 

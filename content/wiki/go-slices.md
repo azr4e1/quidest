@@ -15,12 +15,12 @@ The type `[]T` is a slice with elements of type `T`
 It is a kind of Go type that represents an _ordered_ collection of elements, all of the same type.
 
 A slice literal specifies the name of the slice type, followed by some element in curly braces:
-```go
+```golang
 []string{'a', 'b', 'c',}
 ```
 
 It is like an array literal without the length. The statement above will create the array
-```go
+```golang
 [3]string{'a', 'b', 'c'}
 ```
 
@@ -29,7 +29,7 @@ and then build a slice that references it.
 In a slice literal of some custom type, such as a struct, we don’t need to repeat that type name as part of every element literal: the compiler can infer it.
 
 We use the square-bracket notation to refer to a particular numbered element of the slice:
-```go
+```golang
 mySlice[0]
 ```
 
@@ -37,7 +37,7 @@ is the first element of the slice `mySlice`. Index starts from 0.
 
 `len` is a built-in function that returns the length of a slice. `append` is a function that appends elements to a slice.
 
-```go
+```golang
 func append(s []T, ...T) []T
 ```
 
@@ -46,7 +46,7 @@ The resulting value of `append` is a slice containing all the elements of the or
 If the backing array of `s` is too small to fit all the given values a bigger array will be allocated. The returned slice will point to the newly allocated array.
 
 A slice is formed by specifying two indices, a low and high bound, separated by a colon:
-```go
+```golang
 var a [10]int
 
 a[low:high]
@@ -57,7 +57,7 @@ When slicing, you may omit the high or low bounds to use their defaults instead.
 
 The default is zero for the low bound and the length of the slice for the high bound.
 
-```go
+```golang
 var a [10]int
 
 a[0:10]

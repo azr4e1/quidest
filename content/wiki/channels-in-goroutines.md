@@ -9,7 +9,7 @@ tags = ["thread",  "computer_science",  "scheduler",  "process",  "golang",  "co
 
 
 Channels are a typed conduit (a passage, pipe) through which you can send and receive values with the channel operator `<-`
-```go
+```golang
 ch <- v  // send v to channel ch.
 v := <- ch // receive from ch, and assign value to v.
 ```
@@ -17,7 +17,7 @@ v := <- ch // receive from ch, and assign value to v.
 The data flows in the direction of the arrow.
 
 Like maps and slices, channels must be created before use:
-```go
+```golang
 ch := make(chan int)
 ```
 
@@ -25,7 +25,7 @@ By default, sends and receives block until the other side is ready. This allows 
 
 The example code sums the numbers in a slice, distributing the work between two goroutines. Once both goroutines have completed their computation, it calculates the final result.
 
-```go
+```golang
 package main
 
 import "fmt"

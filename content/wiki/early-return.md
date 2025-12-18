@@ -10,7 +10,7 @@ tags = ["return",  "basics",  "programming",  "conditional",  "if",  "golang",  
 
 Early return is a design patter that combines with the [happy-path](/wiki/happy-path/) design pattern. When a function deviates from the happy path, we include a return inside the deviation so that the function interrupts.
 
-```go
+```golang
 if x <= 0 {
     fmt.Println("Nope, x is zero or negative")
     return false

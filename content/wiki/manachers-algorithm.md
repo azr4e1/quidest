@@ -58,7 +58,7 @@ Manacher's algorithm processes each character in the transformed string once, ma
 We use an array P to store the palindrome radii, making the space complexity linear as well.
 
 
-```go
+```golang
 func LongestPalindrome(s string) string {
 	T := "^#" + strings.Join(strings.Split(s, ""), "#") + "#$"
 	n := len(T)

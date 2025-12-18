@@ -24,19 +24,19 @@ Since it’s quite common in Go to define types with unexported fields, and cmp.
 
 Add the following import to your package:
 
-```go
+```golang
 "github.com/google/go-cmp/cmp/cmpopts"
 ```
 
 Modify the calls to `cmp.Equal` in your tests to change them from this:
 
-```go
+```golang
 if !cmp.Equal(want, got) {
 ```
 
 to this:
 
-```go
+```golang
 if !cmp.Equal(want, got,
     cmpopts.IgnoreUnexported(bookstore.Book{})) {
 ```

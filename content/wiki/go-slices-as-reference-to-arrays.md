@@ -14,7 +14,7 @@ Changing the elements of a slice modifies the corresponding elements of its unde
 
 Other slices that share the same underlying array will see those changes.
 
-```go
+```golang
 package main
 
 import "fmt"

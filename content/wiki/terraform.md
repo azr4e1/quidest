@@ -42,7 +42,7 @@ Terraform can authenticate by using the env variable `export GOOGLE_APPLICATION_
 
 The main file for a terraform service is `main.tf`. Let's see an example:
 
-```terraform
+```hcl
 terraform {
   required_providers {
     google = {

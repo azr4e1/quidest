@@ -11,7 +11,7 @@ tags = ["set",  "map",  "programming",  "booleans",  "values",  "variables",  "g
 When you want to represent a set of objects in Go, a nice trick is to use a map with keys as your objects, and values as booleans.
 
 E.g.:
-```go
+```golang
 var myMap = map[Object]bool{
   Object1: true,
   Object2: true,
@@ -21,7 +21,7 @@ var myMap = map[Object]bool{
 ```
 
 This will make it very natural when checking the existence of an object in your set:
-```go
+```golang
 if myMap[obj] {
   ...
 }

@@ -18,7 +18,7 @@ The length and capacity of a slice `s` can be obtained using the expressions `le
 
 You can extend a slice's length by re-slicing it, provided it has sufficient capacity. If you try to extend it beyond its capacity, it will panic
 
-```go
+```golang
 package main
 
 import "fmt"

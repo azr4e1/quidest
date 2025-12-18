@@ -22,7 +22,7 @@ The optimal match is denoted by the match that satisfies all the restrictions an
 
 ## Implementation
 
-```go
+```golang
 type Pair struct {
 	x int
 	y int

@@ -11,7 +11,7 @@ tags = ["programming",  "loops",  "range",  "repeat",  "for",  "infinite",  "sta
 A set of statements which can be repeated is called a loop, and in Go loops are introduced by the keyword `for`.
 
 We begin with the for keyword, followed by an (optional) conditional expression, and an opening curly brace. Then follows an (optional) set of statements, and a final closing curly brace.
-```go
+```golang
 for x < 10 {
     fmt.Println("x is less than 10")
     ... // update X, perhaps
@@ -21,7 +21,7 @@ for x < 10 {
 Omitting a condition is equivalent to specifying the condition true, which is always true. A for loop without a condition will execute forever.
 
 To loop over a collection of elements one by one, we can use the `range` keyword:
-```go
+```golang
 for i, e := range employees {
     fmt.Println("Employee number %d: %v", i, e)
 }

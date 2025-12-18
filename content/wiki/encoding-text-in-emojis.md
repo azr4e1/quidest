@@ -31,7 +31,7 @@ The variation selectors are broken into two ranges of codepoints: the original s
 
 ### Encoding
 
-```go
+```golang
 func main() {
 	encoded := encode('😀', []byte("Good job! Did you use ChatGPT to decode me?"))
 	fmt.Printf("%s\n", encoded)
@@ -61,7 +61,7 @@ func encode(base rune, sentence []byte) string {
 
 ### Decoding
 
-```go
+```golang
 func main() {
 	encoded := encode('😀', []byte("Good job! Did you use ChatGPT to decode me?"))
 	decoded := decode(encoded)

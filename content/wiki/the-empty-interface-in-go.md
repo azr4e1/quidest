@@ -9,7 +9,7 @@ tags = ["nil",  "pointer",  "heap",  "interface",  "empty",  "pass_by",  "golang
 
 
 The interface type that specifies zero methods is knows as the _empty interface_:
-```go
+```golang
 interface{}
 ```
 

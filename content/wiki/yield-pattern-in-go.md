@@ -9,7 +9,7 @@ tags = ["golang",  "computer_science",  "pattern",  "concurrency",  "yield",  "g
 
 
 
-```go
+```golang
 func YieldFunction() <-chan int {
     ch := make(chan int)
     go func() {

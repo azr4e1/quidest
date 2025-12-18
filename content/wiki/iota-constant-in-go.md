@@ -10,7 +10,7 @@ tags = ["programming",  "constants",  "values",  "define",  "golang",  "variable
 
 When we are only interested in representing the allowed value of something, but we don't care what those actual values are, we can use the `iota` constant. It will get the value 0, and successive constants will get successively increasing values: 1, 2, 3...
 
-```go
+```golang
 type Category int
 
 const (

@@ -11,7 +11,7 @@ tags = ["basics",  "golang",  "statement",  "programming"]
 A statement is simply an instruction to Go to do something.
 
 E.g.:
-```go
+```golang
 b = Book{Title: "The Making of a Butterfly"}
 ```
 

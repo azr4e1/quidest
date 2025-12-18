@@ -14,7 +14,7 @@ The receiver doesn't need to be a struct. We can declare methods on non-struct t
 
 You can only declare a method with a receiver whose type is defined in the same package as the method. You cannot declare a method with receiver whose type is defined in another package (which includes built-in types such as `int`)
 
-```go
+```golang
 package main
 
 import (
