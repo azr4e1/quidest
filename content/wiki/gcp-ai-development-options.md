@@ -12,10 +12,10 @@ GCP offers several options to develop and deploy AI solutions:
 - [AutoML](/wiki/gcp-auto-ml): low code solutions for data scientists; apply a no-code solution to build ML models on [Vertex AI](/wiki/gcp-vertex-ai).
 - [Custom training](/wiki/gcp-custom-training): code your own ML environment to have control over the ML pipeline.
 
-|          | Pre-trained APIs | BigQueryML | AutoML | Custom Training |
-|----------|------------------|------------|--------|-----------------|
-| Data Type| tabular, image, text, audio, video | tabular | tabular, image, text, video | tabular, image, text, video |
-| Training data size | no data required | medium to large | small to medium | medium to large |
-| ML and coding expertise | low | medium | low | high |
-| Flexibility to tune hyperparams | none | medium | none | high |
-| Time to train model | none | medium | medium | long |
+|                                 | Pre-trained APIs                   | BigQueryML      | AutoML                      | Custom Training             |
+|---------------------------------|------------------------------------|-----------------|-----------------------------|-----------------------------|
+| Data Type                       | tabular, image, text, audio, video | tabular         | tabular, image, text, video | tabular, image, text, video |
+| Training data size              | no data required                   | medium to large | small to medium             | medium to large             |
+| ML and coding expertise         | low                                | medium          | low                         | high                        |
+| Flexibility to tune hyperparams | none                               | medium          | none                        | high                        |
+| Time to train model             | none                               | medium          | medium                      | long                        |

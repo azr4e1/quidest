@@ -211,9 +211,9 @@ Triggers are a way to start a flow from external events. For example, a trigger 
 
 Flows have a number of variable expressions giving you information about them dynamically, a few examples include:
 
-| Parameter |	Description |
-|-----------|------------|
-| {{ flow.id }}	| The identifier of the flow. |
-| {{ flow.namespace }} | The name of the flow namespace. |
-| {{ flow.tenantId }} | The identifier of the tenant (EE only). |
-| {{ flow.revision }} | The revision of the flow. |
+| Parameter            | Description                             |
+|----------------------|-----------------------------------------|
+| {{ flow.id }}        | The identifier of the flow.             |
+| {{ flow.namespace }} | The name of the flow namespace.         |
+| {{ flow.tenantId }}  | The identifier of the tenant (EE only). |
+| {{ flow.revision }}  | The revision of the flow.               |

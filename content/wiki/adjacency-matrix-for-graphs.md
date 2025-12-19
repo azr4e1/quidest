@@ -11,7 +11,7 @@ tags = ["matrix",  "computer_science",  "search",  "function",  "structure",  "b
 
 An adjacency matrix is a square matrix used to represent a finite graph. The elements of the matrix indicate whether pairs of vertices are adjacent or not in the graph. true indicates the presence of an edge, false represents the absence.
 
-|   |   0   |   1   |   2   |   3   |   4   |
+|   | 0     | 1     | 2     | 3     | 4     |
 |---|-------|-------|-------|-------|-------|
 | 0 | false | true  | false | false | true  |
 | 1 | true  | false | true  | true  | true  |

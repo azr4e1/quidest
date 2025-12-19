@@ -292,9 +292,9 @@ These steps demonstrate the process of normalizing a fictitious student table.
 1. Unnormalized table:
 
 | Student# | Advisor | Adv-Room | Class1 | Class2 | Class3 |
-|------|-------|-----|--------|--------|--------|
-| 1022 | Jones | 412 | 101-07 | 143-01 | 159-02 |
-| 4123 | Smith | 216 | 101-07 | 143-01 | 179-04 |
+|----------|---------|----------|--------|--------|--------|
+| 1022     | Jones   | 412      | 101-07 | 143-01 | 159-02 |
+| 4123     | Smith   | 216      | 101-07 | 143-01 | 179-04 |
 
 2. First normal form: No repeating groups
 
@@ -303,13 +303,13 @@ Tables should have only two dimensions. Since one student has several classes, t
 Spreadsheets often use the third dimension, but tables shouldn't. Another way to look at this problem is with a one-to-many relationship, don't put the one side and the many sides in the same table. Instead, create another table in first normal form by eliminating the repeating group (Class#), as shown in the following example:
 
 | Student# | Advisor | Adv-Room | Class# |
-|------|-------|-----|--------|
-| 1022 | Jones | 412 | 101-07 |
-| 1022 | Jones | 412 | 143-01 |
-| 1022 | Jones | 412 | 159-02 |
-| 4123 | Smith | 216 | 101-07 |
-| 4123 | Smith | 216 | 143-01 |
-| 4123 | Smith | 216 | 179-04 |
+|----------|---------|----------|--------|
+| 1022     | Jones   | 412      | 101-07 |
+| 1022     | Jones   | 412      | 143-01 |
+| 1022     | Jones   | 412      | 159-02 |
+| 4123     | Smith   | 216      | 101-07 |
+| 4123     | Smith   | 216      | 143-01 |
+| 4123     | Smith   | 216      | 179-04 |
 
 3. Second normal form: Eliminate redundant data
 
@@ -320,20 +320,20 @@ The following tables demonstrate second normal form:
 **Students**:
 
 | Student# | Advisor | Adv-Room |
-|------|-------|-----|
-| 1022 | Jones | 412 |
-| 4123 | Smith | 216 |
+|----------|---------|----------|
+| 1022     | Jones   | 412      |
+| 4123     | Smith   | 216      |
 
 **Registration**:
 
 | Student# | Class# |
-|------|--------|
-| 1022 | 101-07 |
-| 1022 | 143-01 |
-| 1022 | 159-02 |
-| 4123 | 101-07 |
-| 4123 | 143-01 |
-| 4123 | 179-04 |
+|----------|--------|
+| 1022     | 101-07 |
+| 1022     | 143-01 |
+| 1022     | 159-02 |
+| 4123     | 101-07 |
+| 4123     | 143-01 |
+| 4123     | 179-04 |
 
 4. Third normal form: Eliminate data not dependent on key
 
@@ -342,16 +342,16 @@ In the last example, Adv-Room (the advisor's office number) is functionally depe
 **Students**:
 
 | Student# | Advisor |
-|------|-------|
-| 1022 | Jones |
-| 4123 | Smith |
+|----------|---------|
+| 1022     | Jones   |
+| 4123     | Smith   |
 
 **Faculty**:
 
-| Name | Room | Dept |
-|-------|-----|----|
-| Jones | 412 | 42 |
-| Smith | 216 | 42 |
+| Name  | Room | Dept |
+|-------|------|------|
+| Jones | 412  | 42   |
+| Smith | 216  | 42   |
 
 # Postgres Cheatsheet
 

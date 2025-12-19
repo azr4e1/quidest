@@ -17,12 +17,12 @@ Extensible Markup Language (XML) transports the data between the web server and 
 
 JavaScript and Extensible Markup Language work together under AJAX to ensure the web page content is updated asynchronously. In other words, with AJAX, site content can be updated without reloading the entire page.
 
-|Conventional model	| AJAX model |
-|-------------------|------------|
-|The browser sends an HTTP request to the server.	| The browser creates a JavaScript call, which then creates a new XMLHttpRequest object.|
-|The web server receives and processes the request.	| The new XMLHttpRequest object transfers data between the browser and the web server in an XML format.|
-|The web server sends the requested data to the browser. | The XMLHttpRequest object sends a request for the updated page data to the web server. Subsequently, the latter processes the request and sends it back to the browser.|
-|The browser receives the data from the server and reloads it as an HTML page. Users have to wait until it finishes loading. Therefore, the conventional model increases the load on the server and is more time-consuming.	| The browser uses JavaScript to process the response and displays the updated content directly on the HTML page without reloading.|
+| Conventional model                                                                                                                                                                                                         | AJAX model                                                                                                                                                              |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The browser sends an HTTP request to the server.                                                                                                                                                                           | The browser creates a JavaScript call, which then creates a new XMLHttpRequest object.                                                                                  |
+| The web server receives and processes the request.                                                                                                                                                                         | The new XMLHttpRequest object transfers data between the browser and the web server in an XML format.                                                                   |
+| The web server sends the requested data to the browser.                                                                                                                                                                    | The XMLHttpRequest object sends a request for the updated page data to the web server. Subsequently, the latter processes the request and sends it back to the browser. |
+| The browser receives the data from the server and reloads it as an HTML page. Users have to wait until it finishes loading. Therefore, the conventional model increases the load on the server and is more time-consuming. | The browser uses JavaScript to process the response and displays the updated content directly on the HTML page without reloading.                                       |
 
 
 ## Example

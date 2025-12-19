@@ -15,11 +15,11 @@ where the random effect is Subject, and Trial is nested in Keyboard and Posture.
 `mbltxttrials.csv`
 | Subject | Keyboard | Posture | Posture_Order | Trial | WPM   | Error_Rate |
 |---------|----------|---------|---------------|-------|-------|------------|
-|       1 |   iPhone |     Sit |             1 |      1| 21.05 |        0.01|
-|       1 |   iPhone |     Sit |             1 |      2| 15.95 |        0.02|
-|       1 |   iPhone |     Sit |             1 |      3| 21.51 |        0.01|
-|       1 |   iPhone |     Sit |             1 |      4| 24.37 |        0.00|
-|       1 |   iPhone |     Sit |             1 |      5| 22.58 |        0.05|
+| 1       | iPhone   | Sit     | 1             | 1     | 21.05 | 0.01       |
+| 1       | iPhone   | Sit     | 1             | 2     | 15.95 | 0.02       |
+| 1       | iPhone   | Sit     | 1             | 3     | 21.51 | 0.01       |
+| 1       | iPhone   | Sit     | 1             | 4     | 24.37 | 0.00       |
+| 1       | iPhone   | Sit     | 1             | 5     | 22.58 | 0.05       |
 
 ```R
 ## Linear Mixed Model (LMM) on WPM

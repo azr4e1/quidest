@@ -352,15 +352,15 @@ This plan integrates the complete [Data Engineering Zoomcamp](https://github.com
 
 ## Complete Zoomcamp Module Coverage
 
-| Module | Week | Focus | Hours |
-|--------|------|-------|-------|
-| Module 1 | Week 1-2 | Docker & Terraform | 6-8 |
-| Module 2 | Week 3 | Workflow Orchestration | 8-10 |
-| Module 3 | Week 4 | Data Warehouse | 10-12 |
-| Module 4 | Week 5 | Analytics Engineering | 12-15 |
-| Module 5 | Week 7 | Batch Processing | 15-20 |
-| Module 6 | Week 8 | Streaming | 12-15 |
-| Module 7 | Week 10-12 | Project | 30-40 |
+| Module   | Week       | Focus                  | Hours |
+|----------|------------|------------------------|-------|
+| Module 1 | Week 1-2   | Docker & Terraform     | 6-8   |
+| Module 2 | Week 3     | Workflow Orchestration | 8-10  |
+| Module 3 | Week 4     | Data Warehouse         | 10-12 |
+| Module 4 | Week 5     | Analytics Engineering  | 12-15 |
+| Module 5 | Week 7     | Batch Processing       | 15-20 |
+| Module 6 | Week 8     | Streaming              | 12-15 |
+| Module 7 | Week 10-12 | Project                | 30-40 |
 
 **Total Zoomcamp Time**: 93-120 hours  
 **Total Plan Time**: 270-360 hours (includes theory, practice, interview prep)
