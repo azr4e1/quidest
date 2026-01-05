@@ -1,6 +1,6 @@
 +++
 date = '2026-01-05T01:32:02+01:00'
-title = 'Shows Principles'
+title = 'Shoes Principles'
 hideReply = true
 +++
 
