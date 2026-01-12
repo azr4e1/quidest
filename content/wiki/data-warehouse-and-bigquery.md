@@ -1,0 +1,85 @@
++++
+date = '2026-01-12T17:26:20Z'
+title = 'Data Warehouse and BigQuery'
+hideReply = true
+tags = ["data-engineering", "study-plan", "career-development", "zoomcamp"]
++++
+
+## OLAP vs OLTP
+
+OLAP stands for **ONline Transactions Processing**, and OLTP stands for **ONline Analytics Processing**
+
+
+|                    | OLAP                                                       | OLTP                                                                |
+|--------------------|------------------------------------------------------------|---------------------------------------------------------------------|
+| Purpose            | Control and run essential business operations in real time | Plan, solve problems, support decisions, discover hidden insights   |
+| Data updates       | Short, fast updates initiated by the user                  | Data periodically refreshed with scheduled, long running batch jobs |
+| Database design    | Normalized databases for efficiency                        | Denormalized databases for analysis                                 |
+| Space requirements | Generally small if historical data is archived             | Generally large due to aggregating large datasets                   |
+
+
+## BigQuery SQL refresher
+
+```sql
+-- Query public available table
+SELECT station_id, name FROM
+    bigquery-public-data.new_york_citibike.citibike_stations
+LIMIT 100;
+
+
+-- Creating external table referring to gcs path
+CREATE OR REPLACE EXTERNAL TABLE `taxi-rides-ny.nytaxi.external_yellow_tripdata`
+OPTIONS (
+  format = 'CSV',
+  uris = ['gs://nyc-tl-data/trip data/yellow_tripdata_2019-*.csv', 'gs://nyc-tl-data/trip data/yellow_tripdata_2020-*.csv']
+);
+
+-- Check yellow trip data
+SELECT * FROM taxi-rides-ny.nytaxi.external_yellow_tripdata limit 10;
+
+-- Create a non partitioned table from external table
+CREATE OR REPLACE TABLE taxi-rides-ny.nytaxi.yellow_tripdata_non_partitioned AS
+SELECT * FROM taxi-rides-ny.nytaxi.external_yellow_tripdata;
+
+
+-- Create a partitioned table from external table
+CREATE OR REPLACE TABLE taxi-rides-ny.nytaxi.yellow_tripdata_partitioned
+PARTITION BY
+  DATE(tpep_pickup_datetime) AS
+SELECT * FROM taxi-rides-ny.nytaxi.external_yellow_tripdata;
+
+-- Impact of partition
+-- Scanning 1.6GB of data
+SELECT DISTINCT(VendorID)
+FROM taxi-rides-ny.nytaxi.yellow_tripdata_non_partitioned
+WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2019-06-30';
+
+-- Scanning ~106 MB of DATA
+SELECT DISTINCT(VendorID)
+FROM taxi-rides-ny.nytaxi.yellow_tripdata_partitioned
+WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2019-06-30';
+
+-- Let's look into the partitions
+SELECT table_name, partition_id, total_rows
+FROM `nytaxi.INFORMATION_SCHEMA.PARTITIONS`
+WHERE table_name = 'yellow_tripdata_partitioned'
+ORDER BY total_rows DESC;
+
+-- Creating a partition and cluster table
+CREATE OR REPLACE TABLE taxi-rides-ny.nytaxi.yellow_tripdata_partitioned_clustered
+PARTITION BY DATE(tpep_pickup_datetime)
+CLUSTER BY VendorID AS
+SELECT * FROM taxi-rides-ny.nytaxi.external_yellow_tripdata;
+
+-- Query scans 1.1 GB
+SELECT count(*) as trips
+FROM taxi-rides-ny.nytaxi.yellow_tripdata_partitioned
+WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2020-12-31'
+  AND VendorID=1;
+
+-- Query scans 864.5 MB
+SELECT count(*) as trips
+FROM taxi-rides-ny.nytaxi.yellow_tripdata_partitioned_clustered
+WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2020-12-31'
+  AND VendorID=1;
+```
