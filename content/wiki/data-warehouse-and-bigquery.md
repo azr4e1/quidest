@@ -67,6 +67,8 @@ When creating an external table (a table from an external resource), bq is not a
 
 ## Partitioning
 
+![Partitioning](/images/partitioning-bq.png)
+
 Generally when we create a dataset, we have columns, whose values can repeat. Partitioning can improve bq performance, by creating "buckets", _partitions_ of the raw dataset based on a columns value, like the date, improving cost and speed by processing less data upon runtime.
 
 A partitioned table is divided into segments, called partitions, that make it easier to manage and query your data. By dividing a large table into smaller partitions, you can improve query performance and control costs by reducing the number of bytes read by a query. You partition tables by specifying a partition column which is used to segment the table.
@@ -105,6 +107,8 @@ ORDER BY total_rows DESC;
 ```
 
 ## Clustering
+
+![Clustering](/images/clustering-bq.png)
 
 Clustered tables in BigQuery are tables that have a user-defined column sort order using clustered columns. Clustered tables can improve query performance and reduce query costs.
 
@@ -172,5 +176,53 @@ To maintain the performance characteristics of a clustered table:
 
 - BigQuery performs automatic re-clustering in the background to restore the sort property of the table
 - For partitioned tables, clustering is maintained for data within the scope of each partition.
+- it is free
 
+## BigQuery Best Practices
+
+1. Cost Reduction
+  - Avoid `SELECT *`: bq stores data in a columns storage, so specifying column name will save operation costs
+  - Price the queries before running them
+  - Use clustered or partitioned tables
+  - Use streaming inserts with caution
+  - Materialize query results in stages
+2. Query Performance:
+  - Filter on partitioned columns
+  - Denormalizing data
+  - Use nested or repeated columns
+  - Use external data sources appropriately
+  - Don't use it, in case u want a high query performance
+  - Reduce data before using a JOIN
+  - Do not treat WITH clauses as prepared statements
+  - Avoid oversharding tables
+
+
+## Internals of BigQuery
+
+![Internals](/images/internals1-bq.png)
+
+BigQuery stores the data in a separete storage called **Colossus**. It is a cheap storage that stores data in a column format. Since storage is separated from compute, it has significantly less cost. The most cost intensive task is reading the data itself, which is mostly compute.
+
+Since compute and storage are on different hardware, how do they communicate? If network is bad, it can affect speed. That's where **Jupyter** network playes a role. It is a network inside BQ datacenters, and provides 1TB/s network speed, allowing compute and storage to be on separated hardware while talking without any delays.
+
+The third component of BQ is **Dremel**: it is bq execution engine; it divides queries into a tree structure, and separates queries in such a way that each tree node executes an individual subset of a query.
+
+### Columnar and Record-oriented storage
+
+![Columnar and Record-oriented storage](/images/internals2-bq.png)
+
+A _record-oriented_ storage is the typical storage structure that we can find in CSV; each record (column) is their own entity, separated by a delimited (newline for CSV).
+
+_Column-oriented_ storage organizes data by column, storing all values for a single column together on disk, unlike traditional row-oriented systems that store all data for a single record sequentially. This method significantly speeds up analytical queries (like sums, averages, min/max) by allowing systems to read only the relevant columns, reducing I/O, and enabling efficient compression because data within a column is of the same type, making it ideal for data warehousing and big data analytics. 
+
+How it works:
+
+- Data layout: Instead of `[Name1, Email1, Company1], [Name2, Email2, Company2]`, it stores `[Name1, Name2, ...], [Email1, Email2, ...], [Company1, Company2, ...]`.
+- Query optimization: For a query like "average sales amount", the system only reads the "sales amount" column, ignoring others, which reduces data to process.
+- Compression: Similar data types in a column (e.g., all numbers or all "Status: Active/Inactive") compress much better, saving space and improving read speed.
+- Vectorized processing: Storing data contiguously allows for modern CPU optimizations (like SIMD) to process chunks of data quickly,
+
+### Dremel
+
+![Internals](/images/internals3-bq.png)
 
