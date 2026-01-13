@@ -2,38 +2,76 @@
 date = '2026-01-12T17:26:20Z'
 title = 'Data Warehouse and BigQuery'
 hideReply = true
-tags = ["data-engineering", "study-plan", "career-development", "zoomcamp"]
+tags = ["data-engineering", "study-plan", "career-development", "zoomcamp", "data marts"]
 +++
 
 ## OLAP vs OLTP
 
-OLAP stands for **ONline Transactions Processing**, and OLTP stands for **ONline Analytics Processing**
+OLTP stands for **ONline Transactions Processing**, and OLAP stands for **ONline Analytics Processing**
+
+OLTP is for backend purposes, while OLAP is used by data analysts or data scientists to discover insights.
 
 
-|                    | OLAP                                                       | OLTP                                                                |
-|--------------------|------------------------------------------------------------|---------------------------------------------------------------------|
-| Purpose            | Control and run essential business operations in real time | Plan, solve problems, support decisions, discover hidden insights   |
-| Data updates       | Short, fast updates initiated by the user                  | Data periodically refreshed with scheduled, long running batch jobs |
-| Database design    | Normalized databases for efficiency                        | Denormalized databases for analysis                                 |
-| Space requirements | Generally small if historical data is archived             | Generally large due to aggregating large datasets                   |
+|                     | OLAP                                                       | OLTP                                                                |
+|---------------------|------------------------------------------------------------|---------------------------------------------------------------------|
+| Purpose             | Control and run essential business operations in real time | Plan, solve problems, support decisions, discover hidden insights   |
+| Data updates        | Short, fast updates initiated by the user                  | Data periodically refreshed with scheduled, long running batch jobs |
+| Database design     | Normalized databases for efficiency                        | Denormalized databases for analysis                                 |
+| Space requirements  | Generally small if historical data is archived             | Generally large due to aggregating large datasets                   |
+| Backup and recovery | Regular Backups                                            | Lost data can be recovered from OLTP insted of regular backups      |
+| Productivity        | Increases productivity of end user                         | Increases productivity of managers and data analysts                |
+| Data view           | Lists day-to-day business                                  | Multi-dimensional view of enterprise data                           |
+| User examples       | Customer-facing personnel, clerks, online shopper          | Knowledge workers and executives                                    |
 
 
-## BigQuery SQL refresher
+A data warehouse is a OLAP solution used for reporting and data analyses. It consists of raw data, metadata and summaries. They have many data sources.
+
+![data warehouse](/images/data-warehouse.jpg)
+
+Data Warehouse can output to _Data Marts_ (A data mart is a focused, smaller database containing a subset of data from a larger data warehouse, designed for a specific department (like Sales or Marketing) or business function, providing faster, easier access for targeted analysis, reporting, and business intelligence), but can also provide their raw output.
+
+## BigQuery
+
+BigQuery is a serverless data warehouse. It provides both software and infrastructure, with scalability and availability in mind.
+
+You can do ML via SQL, handle geospatial data and provide business intelligence solutions
+
+BigQuery is flexible in how it handles data. BQ separates the compute engine that analyzes the data, from storage.
+
+BQ has two pricing models:
+
+- on demand pricing model; for every terabyte is $5
+- flat price model based on number of pre requested slots; 100 slots -> $2000/month = 40TB data
+
+## BigQuery SQL Table Creation
 
 ```sql
 -- Query public available table
 SELECT station_id, name FROM
     bigquery-public-data.new_york_citibike.citibike_stations
 LIMIT 100;
+```
 
 
+```sql
 -- Creating external table referring to gcs path
 CREATE OR REPLACE EXTERNAL TABLE `taxi-rides-ny.nytaxi.external_yellow_tripdata`
 OPTIONS (
   format = 'CSV',
   uris = ['gs://nyc-tl-data/trip data/yellow_tripdata_2019-*.csv', 'gs://nyc-tl-data/trip data/yellow_tripdata_2020-*.csv']
 );
+```
 
+When creating an external table (a table from an external resource), bq is not able to determine the size and number of rows
+
+
+## Partitioning
+
+Generally when we create a dataset, we have columns, whose values can repeat. Partitioning can improve bq performance, by creating "buckets", _partitions_ of the raw dataset based on a columns value, like the date, improving cost and speed by processing less data upon runtime.
+
+A partitioned table is divided into segments, called partitions, that make it easier to manage and query your data. By dividing a large table into smaller partitions, you can improve query performance and control costs by reducing the number of bytes read by a query. You partition tables by specifying a partition column which is used to segment the table.
+
+```sql
 -- Check yellow trip data
 SELECT * FROM taxi-rides-ny.nytaxi.external_yellow_tripdata limit 10;
 
@@ -64,7 +102,17 @@ SELECT table_name, partition_id, total_rows
 FROM `nytaxi.INFORMATION_SCHEMA.PARTITIONS`
 WHERE table_name = 'yellow_tripdata_partitioned'
 ORDER BY total_rows DESC;
+```
 
+## Clustering
+
+Clustered tables in BigQuery are tables that have a user-defined column sort order using clustered columns. Clustered tables can improve query performance and reduce query costs.
+
+In BigQuery, a clustered column is a user-defined table property that sorts storage blocks based on the values in the clustered columns. The storage blocks are adaptively sized based on the size of the table.
+
+When you create a clustered table in BigQuery, the table data is automatically organized based on the contents of one or more columns in the table’s schema. The columns you specify are used to colocate related data. When you cluster a table using multiple columns, the order of columns you specify is important. The order of the specified columns determines the sort order of the data.
+
+```sql
 -- Creating a partition and cluster table
 CREATE OR REPLACE TABLE taxi-rides-ny.nytaxi.yellow_tripdata_partitioned_clustered
 PARTITION BY DATE(tpep_pickup_datetime)
@@ -83,3 +131,46 @@ FROM taxi-rides-ny.nytaxi.yellow_tripdata_partitioned_clustered
 WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2020-12-31'
   AND VendorID=1;
 ```
+
+## Clustering vs Partitioning
+
+
+When creating a partition table, you can choose to partition by time-unit column, ingestion time or integer-range partitioning. Number of partition limit is 4000.
+
+When choosing time-unit or ingestion-time partitioning, you can select to partition by day (default), hour, month or year.
+
+
+When clustering, the columns you specify are used to co-locate related data; the order of the column is important because it determines the sort order of the data. You can specify up to 4 clustering columns. The clustering columns must be top-level and non-repeating columns.
+
+Clustering improves filter and aggregate queries.
+
+
+It makes sense to have clustering or partitioning for data > 1GB; for tables smaller than 1GB, the overhead added by these can defeat the advantages.
+
+| Clustering                                                                           | Partitioning                         |
+|--------------------------------------------------------------------------------------|--------------------------------------|
+| Cost benefit unknown                                                                 | Cost known upfront                   |
+| You need more granularity than partitioning allows                                   | You need partition-level management  |
+| Your queries commonly use filters or aggregation against multiple particular columns | Filter or aggregate on single column |
+| The cardinality of the number of values in a column is large                         |                                      |
+
+
+You would cluster instead of partition if:
+
+- Partitioning results in a small amount of data per partition (approximately less than 1 GB)
+- Partitioning results in a large number of partitions beyond the limits on partitioned tables
+- Partitioning results in your mutation operations modifying the majority of partitions in the table frequently (for example, every few minutes)
+
+## Automatic Reclustering
+
+As data is added to a clustered table:
+
+- the newly inserted data can be written to blocks that contain key ranges that overlap with the key ranges in previously written blocks
+- These overlapping keys weaken the sort property of the table
+
+To maintain the performance characteristics of a clustered table:
+
+- BigQuery performs automatic re-clustering in the background to restore the sort property of the table
+- For partitioned tables, clustering is maintained for data within the scope of each partition.
+
+
