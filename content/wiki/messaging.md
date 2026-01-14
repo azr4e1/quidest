@@ -21,3 +21,4 @@ Publish/Subscribe is a messaging pattern where:
 
 Key difference from traditional queues: One message goes to multiple subscribers, not just one. It's a broadcast model.
 Example: A "user-signup" topic might have subscribers for sending welcome emails, updating analytics, and triggering onboarding workflows. The signup service publishes once; all three subscribers get the message.
+

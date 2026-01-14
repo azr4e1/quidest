@@ -31,3 +31,4 @@ in fact, if the object doesn't exist, by default Go returns the empty value ([no
 
 ## References
 - John Arundel, For the Love of Go
+
