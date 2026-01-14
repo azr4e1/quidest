@@ -227,3 +227,5 @@ How it works:
 ![Internals](/images/internals-bq3.png)
 
 Dremel will modifiy the query that it receives into a number of subqueries that are delegated to _mixers_, which will further divide their own queries into subqueries until this process cannot be performed anymore, and the final subqueries are given to leaf nodes. These leaf nodes are the workers that will actually interface with Colossus to retrieve the data in parallel (MapReduce) and processes it and deliver it to the parent nodes until the original query is satisfied.
+
+## BigQuery ML
