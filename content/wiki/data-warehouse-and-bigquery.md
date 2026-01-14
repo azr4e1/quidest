@@ -199,7 +199,7 @@ To maintain the performance characteristics of a clustered table:
 
 ## Internals of BigQuery
 
-![Internals](/images/internals1-bq.png)
+![Internals](/images/internals-bq1.png)
 
 BigQuery stores the data in a separete storage called **Colossus**. It is a cheap storage that stores data in a column format. Since storage is separated from compute, it has significantly less cost. The most cost intensive task is reading the data itself, which is mostly compute.
 
@@ -209,7 +209,7 @@ The third component of BQ is **Dremel**: it is bq execution engine; it divides q
 
 ### Columnar and Record-oriented storage
 
-![Columnar and Record-oriented storage](/images/internals2-bq.png)
+![Columnar and Record-oriented storage](/images/internals-bq2.png)
 
 A _record-oriented_ storage is the typical storage structure that we can find in CSV; each record (column) is their own entity, separated by a delimited (newline for CSV).
 
@@ -224,6 +224,6 @@ How it works:
 
 ### Dremel
 
-![Internals](/images/internals3-bq.png)
+![Internals](/images/internals-bq3.png)
 
 Dremel will modifiy the query that it receives into a number of subqueries that are delegated to _mixers_, which will further divide their own queries into subqueries until this process cannot be performed anymore, and the final subqueries are given to leaf nodes. These leaf nodes are the workers that will actually interface with Colossus to retrieve the data in parallel (MapReduce) and processes it and deliver it to the parent nodes until the original query is satisfied.
