@@ -339,46 +339,46 @@ tip_amount IS NOT NULL;
 
 Let's authenticate through our CLI:
 
-```
+```bash
 gcloud auth login
 ```
 
 Select the project your model is on:
 
-```
+```bash
 gcloud config set project local-dimension-477102-g9
 ```
 
 Extract the ML model from BigQuery to a bucket:
 
-```
+```bash
 bq extract -m nytaxi.tip_model gs://nyc-tl-data-ld/tip_model
 ```
 
 Let's make a temporary folder where we will copy the model from the bucket to our local machine
 
-```
+```bash
 mkdir /tmp/model
 gsutil cp -r gs://nyc-tl-data-ld/tip_model /tmp/model
 ```
 
 Let's create a serving directory for model version 1, and copy the model in there
 
-```
+```bash
 mkdir -p serving_dir/tip_model/1
 cp -r /tmp/model/tip_model/* serving_dir/tip_model/1
 ```
 
 Let's now pull the docker image for serving and run it:
 
-```
+```bash
 docker pull tensorflow/serving
 docker run -d -p 8501:8501 --mount type=bind,source=`pwd`/serving_dir/tip_model,target=/models/tip_model -e MODEL_NAME=tip_model -t tensorflow/serving
 ```
 
 Let's query the model via http requests:
 
-```
+```bash
 curl http://localhost:8501/v1/models/tip_model
 
 curl -d '{"instances": [{"passenger_count":1, "trip_distance":12.2, "PULocationID":"193", "DOLocationID":"264", "payment_type":"2","fare_amount":20.4,"tolls_amount":0.0}]}' -X POST http://localhost:8501/v1/models/tip_model:predict
