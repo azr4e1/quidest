@@ -4,7 +4,7 @@ hideReply = true
 title = "TLS certificate"
 author = "Lorenzo Drumond"
 date = "2024-03-22T00:03:50"
-tags = ["protocol",  "certificate",  "internet",  "layer",  "encryption",  "computer_science",  "authority",  "security",  "https",  "web",  "transport",  "tls"]
+tags = ["protocol",  "certificate",  "internet",  "layer",  "encryption",  "computer_science",  "authority",  "security",  "https",  "web",  "transport",  "tls", 'network']
 +++
 
 

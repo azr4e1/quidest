@@ -4,7 +4,7 @@ hideReply = true
 title = "TLS handshake"
 author = "Lorenzo Drumond"
 date = "2024-03-22T00:15:56"
-tags = ["protocol",  "internet",  "layer",  "encryption",  "handshake",  "computer_science",  "security",  "web",  "transport",  "tls"]
+tags = ["protocol",  "internet",  "layer",  "encryption",  "handshake",  "computer_science",  "security",  "web",  "transport",  "tls", 'network']
 +++
 
 
