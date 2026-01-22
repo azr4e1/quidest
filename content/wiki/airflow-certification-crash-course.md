@@ -164,9 +164,9 @@ In airflow 3, if you schedule a DAG to start at 10AM, and to run every 10 minute
 
 Sharing data between tasks.
 
-Let's say task1 fetches data with an API, and then task2
+Let's say task1 fetches data with an API, and then task2 needs to process the data. We can accomplish this through XCOMs.
 
-XCOM is like a box with the value you want to store in it. You identify the XCOM with a key, and then you push it to the metadata database.
+An XCOM is like a box with the value you want to store in it. You identify the XCOM with a key, and then you push it to the metadata database.
 
 ```python
 ti.xcom_push(key='my_number', value=23)
