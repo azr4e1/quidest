@@ -55,7 +55,7 @@ Airflow has the following components:
 - **Worker**: Process executing the tasks, defined by the executor
 - **Triggerer**: Process running asyncio to support deferrable operators
 
-## How the work
+## How they work
 
 ![how they work](/images/airflow-components.png)
 
