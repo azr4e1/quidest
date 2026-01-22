@@ -180,7 +180,7 @@ val = task_a()
 task_b(val)
 ```
 
-XCOM can only deal small amounts of data, (1GB on Postgres, 2GB on SQLite, 64MB on MySQL). Data must be JSON-serializable. It is mainly used to pass data between tasks and DAGs.
+XCOM can only deal with small amounts of data, (1GB on Postgres, 2GB on SQLite, 64MB on MySQL). Data must be JSON-serializable. It is mainly used to pass data between tasks and DAGs.
 
 **NB**: an XCOM is defined by its id, task_id and dag_id.
 
@@ -196,7 +196,7 @@ Do not store credentials in variables. For that, use Connections.
 
 Variables have a unique key, a value (JSON serializable) and a description.
 
-We can create variables to create them:
+We can create variables in different ways:
 
 - Airflow UI
 - Environment variables: `AIRFLOW_VAR_MYREGULARVAR='my_value'` creates a variable with key `MYREGULARVAR`, and value `'my_value'`; however is not visible in the airflow UI; `AIRFLOW_VAR_MYJSONVAR='{"hello":"world"}'` creates a json variable
@@ -269,7 +269,7 @@ waiting_for_partner = SqlSensor(
 )
 ```
 
-reschedule mode is better optimize than poke mode. Shorter than 5 minutes, use poke, else use reschedule
+reschedule mode is better optimized than poke mode. Shorter than 5 minutes, use poke, else use reschedule
 
 ## Changes to remember between AF2/AF3
 
