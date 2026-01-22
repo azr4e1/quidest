@@ -61,7 +61,9 @@ Airflow has the following components:
 
 The workers go through the API server to pull the task they have to execute; they do not interact directly with the metadata database. This allows us to run the workers in different cluster than the database.
 
-The API, scheduler, triggerer and DAG processor interact with the metadata database
+The API, scheduler, triggerer and DAG processor interact with the metadata database.
+
+![Adding a DAG](/images/airflow-workflow.png)
 
 We add a DAG to the DAG folder. The processor processes every 5 minutes the DAG folder for new DAG files; It serializes the DAG file into the metadata database, and the scheduler reads from the database, and check if there is anything to schedule. The task instances scheduled are passed to the Executor, which pushes it to the queue and is assigned to a worker. The worker updates the state to the API server, which updates the metadata database.
 
@@ -136,6 +138,8 @@ chain([t1, t2], [t3, t4])
 
 ## DAG scheduling
 
+A DAG run has the following properties:
+
 - state: final DAG run's state
 - DAG ID: dag id of the dag triggered
 - logical date: the date when the DAG runs
@@ -144,6 +148,7 @@ chain([t1, t2], [t3, t4])
 - duration
 - run ID
 
+![DAG run state](/images/dag-state.png)
 
 A DAG run can be either **Queued**, **Running** or **Success**/**Failed**.
 
@@ -154,6 +159,8 @@ In airflow 3, if you schedule a DAG to start at 10AM, and to run every 10 minute
 ## Features
 
 ### XCOMs
+
+![sharing data](/images/xcom.png)
 
 Sharing data between tasks.
 
@@ -214,6 +221,8 @@ Some keywords are detected as sensitive and are automatically hidden in the Airf
 
 ### Connections
 
+![Connections](/images/airflow-connections.png)
+
 Connect tools to Airflow
 
 If a task needs to connect to external tool, we can use connections.
@@ -247,7 +256,16 @@ Timeout is 7 days by default.
 from airflow.providers.common.sql.sensors.sql import SqlSensor
 
 waiting_for_partner = SqlSensor(
-  
+  task_id="waiting_for_partner",
+  conn_id="postgres",
+  sql="sql/CHECK_PARTNER.sql",
+  parameters={"name": "partner_a"},
+  success=_success_criteria,
+  failure=_failure_criteria,
+  fail_on_empty=False,
+  poke_interval=20,
+  mode="reschedule",
+  timeout=60*5
 )
 ```
 
