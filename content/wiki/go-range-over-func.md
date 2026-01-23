@@ -2,6 +2,7 @@
 date = '2026-01-23T16:49:33Z'
 title = 'Go range-over-func'
 hideReply = true
+tags = ['golang', 'programming', 'generics', 'syntax', 'coding', 'software', 'engineering', 'computer']
 +++
 
 # Range Over Function (Custom Iterators) in Go

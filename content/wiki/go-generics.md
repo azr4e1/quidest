@@ -2,6 +2,7 @@
 date = '2026-01-23T16:48:25Z'
 title = 'Go Generics'
 hideReply = true
+tags = ['golang', 'programming', 'generics', 'syntax', 'coding', 'software', 'engineering', 'computer']
 +++
 
 # Generics in Go
