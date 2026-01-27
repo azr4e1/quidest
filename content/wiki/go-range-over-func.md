@@ -15,7 +15,7 @@ Range-over-func was introduced in Go 1.23 (released August 2024) and allows you 
 
 Iterator functions have specific signatures defined in the `iter` package:
 
-```go
+```golang
 // Iterator that yields single values
 type Seq[V any] func(yield func(V) bool)
 
@@ -25,7 +25,7 @@ type Seq2[K, V any] func(yield func(K, V) bool)
 
 ### Basic Usage
 
-```go
+```golang
 import "iter"
 
 // Simple iterator that yields numbers 1 to n
@@ -52,7 +52,7 @@ The `yield` function is called by the iterator to produce values:
 - Returns `true`: Consumer wants more values (continue iterating)
 - Returns `false`: Consumer stopped (break, return, or finished)
 
-```go
+```golang
 func Fibonacci(max int) iter.Seq[int] {
     return func(yield func(int) bool) {
         a, b := 0, 1
@@ -77,7 +77,7 @@ for num := range Fibonacci(100) {
 
 For iterating pairs of values (like map entries):
 
-```go
+```golang
 // Iterator that yields index and value
 func Enumerate[V any](slice []V) iter.Seq2[int, V] {
     return func(yield func(int, V) bool) {
@@ -100,7 +100,7 @@ for idx, fruit := range Enumerate(fruits) {
 
 ### Tree Traversal
 
-```go
+```golang
 type Tree[T any] struct {
     Value T
     Left  *Tree[T]
@@ -141,7 +141,7 @@ for value := range tree.InOrder() {
 
 ### File Line Iterator
 
-```go
+```golang
 func Lines(filename string) iter.Seq[string] {
     return func(yield func(string) bool) {
         file, err := os.Open(filename)
@@ -167,7 +167,7 @@ for line := range Lines("data.txt") {
 
 ### Infinite Iterators
 
-```go
+```golang
 func Repeat[T any](value T) iter.Seq[T] {
     return func(yield func(T) bool) {
         for {
@@ -203,7 +203,7 @@ for n := range Natural() {
 
 ### Filter
 
-```go
+```golang
 func Filter[V any](seq iter.Seq[V], predicate func(V) bool) iter.Seq[V] {
     return func(yield func(V) bool) {
         for v := range seq {
@@ -228,7 +228,7 @@ for n := range evens {
 
 ### Map/Transform
 
-```go
+```golang
 func Map[V, U any](seq iter.Seq[V], transform func(V) U) iter.Seq[U] {
     return func(yield func(U) bool) {
         for v := range seq {
@@ -251,7 +251,7 @@ for n := range doubled {
 
 ### Take
 
-```go
+```golang
 func Take[V any](seq iter.Seq[V], n int) iter.Seq[V] {
     return func(yield func(V) bool) {
         count := 0
@@ -276,7 +276,7 @@ for n := range first5 {
 
 ### Zip
 
-```go
+```golang
 func Zip[A, B any](a iter.Seq[A], b iter.Seq[B]) iter.Seq2[A, B] {
     return func(yield func(A, B) bool) {
         next, stop := iter.Pull(b)
@@ -305,7 +305,7 @@ for letter, num := range Zip(slices.Values(letters), slices.Values(numbers)) {
 
 ### Chain
 
-```go
+```golang
 func Chain[V any](seqs ...iter.Seq[V]) iter.Seq[V] {
     return func(yield func(V) bool) {
         for _, seq := range seqs {
@@ -329,7 +329,7 @@ for n := range combined {
 
 Go 1.23 also introduced `iter.Pull` and `iter.Pull2` for converting push-style iterators to pull-style:
 
-```go
+```golang
 // Pull converts a push iterator to a pull iterator
 next, stop := iter.Pull(Count(5))
 defer stop() // Important: always call stop to clean up
@@ -351,7 +351,7 @@ Pull iterators are useful when you need:
 - To iterate multiple sequences in parallel
 - To implement complex control flow
 
-```go
+```golang
 func Merge[T constraints.Ordered](a, b iter.Seq[T]) iter.Seq[T] {
     return func(yield func(T) bool) {
         nextA, stopA := iter.Pull(a)
@@ -397,7 +397,7 @@ func Merge[T constraints.Ordered](a, b iter.Seq[T]) iter.Seq[T] {
 
 ### slices Package
 
-```go
+```golang
 import "slices"
 
 // Iterate over values
@@ -418,7 +418,7 @@ for i, v := range slices.Backward([]int{1, 2, 3}) {
 
 ### maps Package
 
-```go
+```golang
 import "maps"
 
 m := map[string]int{"a": 1, "b": 2}
@@ -445,7 +445,7 @@ Iterators don't have built-in error handling. Common patterns:
 
 ### Pattern 1: Panic on Error
 
-```go
+```golang
 func MustLines(filename string) iter.Seq[string] {
     return func(yield func(string) bool) {
         file, err := os.Open(filename)
@@ -469,7 +469,7 @@ func MustLines(filename string) iter.Seq[string] {
 
 ### Pattern 2: Return Seq2 with Error
 
-```go
+```golang
 func LinesWithError(filename string) iter.Seq2[string, error] {
     return func(yield func(string, error) bool) {
         file, err := os.Open(filename)
@@ -502,7 +502,7 @@ for line, err := range LinesWithError("data.txt") {
 
 ### Pattern 3: Separate Error Check
 
-```go
+```golang
 type LinesIter struct {
     filename string
     err      error
@@ -549,7 +549,7 @@ if err := linesIter.Err(); err != nil {
 
 ### Stateful Iterator
 
-```go
+```golang
 type Counter struct {
     count int
 }
@@ -577,7 +577,7 @@ for n := range counter.Next(2) {
 
 ### Generator Pattern
 
-```go
+```golang
 func Generate[T any](generator func() (T, bool)) iter.Seq[T] {
     return func(yield func(T) bool) {
         for {
@@ -605,7 +605,7 @@ for n := range Take(randomInts, 5) {
 
 ### Lazy Evaluation
 
-```go
+```golang
 func LazyMap[V, U any](seq iter.Seq[V], f func(V) U) iter.Seq[U] {
     return func(yield func(U) bool) {
         for v := range seq {
@@ -637,7 +637,7 @@ Unlike channels, iterators can't directly return errors. You must use one of the
 
 ### 2. Cleanup Must Be Explicit
 
-```go
+```golang
 func WithResource() iter.Seq[string] {
     return func(yield func(string) bool) {
         resource := acquireResource()
@@ -654,7 +654,7 @@ func WithResource() iter.Seq[string] {
 
 ### 3. Pull Iterators Must Be Stopped
 
-```go
+```golang
 next, stop := iter.Pull(someIterator)
 defer stop() // CRITICAL: prevents resource leaks
 
@@ -665,7 +665,7 @@ defer stop() // CRITICAL: prevents resource leaks
 
 The `yield` function is not safe to call from multiple goroutines:
 
-```go
+```golang
 // ❌ WRONG: calling yield concurrently
 func BadConcurrent() iter.Seq[int] {
     return func(yield func(int) bool) {
@@ -728,7 +728,7 @@ func GoodConcurrent() iter.Seq[int] {
 
 ## Real-World Example: Database Rows
 
-```go
+```golang
 type DB struct {
     // ...
 }

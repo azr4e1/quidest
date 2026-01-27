@@ -15,7 +15,7 @@ Generics were introduced in Go 1.18 (released March 2022) and represent one of t
 
 Type parameters allow functions and types to work with any type that satisfies certain constraints:
 
-```go
+```golang
 func Print[T any](value T) {
     fmt.Println(value)
 }
@@ -30,7 +30,7 @@ Print(3.14) // Type inference: T inferred as float64
 
 Constraints specify what operations are permitted on a type parameter. They are defined using interfaces:
 
-```go
+```golang
 // Built-in constraint: any (alias for interface{})
 func Identity[T any](v T) T {
     return v
@@ -51,7 +51,7 @@ func Contains[T comparable](slice []T, target T) bool {
 
 You can define your own constraints using interface syntax:
 
-```go
+```golang
 // Method-based constraint
 type Stringer interface {
     String() string
@@ -81,7 +81,7 @@ func Sum[T Number](values []T) T {
 
 The tilde operator matches types with the same underlying type:
 
-```go
+```golang
 type MyInt int
 
 type Integer interface {
@@ -100,7 +100,7 @@ Double(x) // Works because MyInt's underlying type is int
 
 You can combine method requirements with type sets:
 
-```go
+```golang
 type OrderedStringer interface {
     ~int | ~string
     String() string
@@ -111,7 +111,7 @@ type OrderedStringer interface {
 
 ### Generic Structs
 
-```go
+```golang
 type Stack[T any] struct {
     items []T
 }
@@ -138,7 +138,7 @@ intStack.Push(2)
 
 ### Generic Maps and Slices
 
-```go
+```golang
 type Set[T comparable] map[T]struct{}
 
 func NewSet[T comparable]() Set[T] {
@@ -159,7 +159,7 @@ func (s Set[T]) Contains(v T) bool {
 
 The `golang.org/x/exp/constraints` package provides useful predefined constraints:
 
-```go
+```golang
 import "golang.org/x/exp/constraints"
 
 // constraints.Ordered: types that support < > <= >=
@@ -179,7 +179,7 @@ func Max[T constraints.Ordered](a, b T) T {
 
 ## Multiple Type Parameters
 
-```go
+```golang
 type Pair[K comparable, V any] struct {
     Key   K
     Value V
@@ -209,7 +209,7 @@ strs := Map(nums, func(n int) string {
 
 Go can often infer type parameters from arguments:
 
-```go
+```golang
 func First[T any](slice []T) T {
     return slice[0]
 }
@@ -227,7 +227,7 @@ result := First([]int{1, 2, 3})
 
 Methods cannot have their own type parameters (only the receiver can be generic):
 
-```go
+```golang
 type Container[T any] struct { value T }
 
 // ❌ Invalid: methods cannot have additional type parameters
@@ -243,7 +243,7 @@ func Convert[T, U any](c Container[T], f func(T) U) U {
 
 You cannot provide specialized implementations for specific types:
 
-```go
+```golang
 // ❌ Not possible in Go
 func Print[T any](v T) { fmt.Println(v) }
 func Print[int](v int) { fmt.Printf("Integer: %d\n", v) } // Cannot specialize
@@ -253,7 +253,7 @@ func Print[int](v int) { fmt.Printf("Integer: %d\n", v) } // Cannot specialize
 
 Getting the zero value of a generic type:
 
-```go
+```golang
 func Zero[T any]() T {
     var zero T
     return zero
@@ -267,7 +267,7 @@ func Zero2[T any]() T {
 
 ### 4. Type Assertions with Generics
 
-```go
+```golang
 func Process[T any](v T) {
     // Type switch works
     switch val := any(v).(type) {
@@ -285,7 +285,7 @@ func Process[T any](v T) {
 
 A common pattern for methods that require a pointer receiver:
 
-```go
+```golang
 type Setter interface {
     Set(string)
 }
@@ -302,7 +302,7 @@ func SetAll[T any, PT interface { *T; Setter }](items []T, value string) {
 
 ### Generic Result Type
 
-```go
+```golang
 type Result[T any] struct {
     Value T
     Err   error
@@ -319,7 +319,7 @@ func Err[T any](err error) Result[T] {
 
 ### Generic Optional Type
 
-```go
+```golang
 type Optional[T any] struct {
     value *T
 }
@@ -346,7 +346,7 @@ func (o Optional[T]) Unwrap() T {
 
 ### Generic Cache
 
-```go
+```golang
 type Cache[K comparable, V any] struct {
     mu    sync.RWMutex
     items map[K]V
