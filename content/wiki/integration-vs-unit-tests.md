@@ -2,6 +2,7 @@
 date = '2026-01-29T11:37:32Z'
 title = 'Integration vs Unit Tests'
 hideReply = true
+tags = ['programming', 'coding', 'computer-science']
 +++
 
 - Unit tests test a single function or method in isolation. The inputs and expected outputs are for that specific function only.
