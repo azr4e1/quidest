@@ -4,17 +4,10 @@ title = 'Integration vs Unit Tests'
 hideReply = true
 +++
 
-Unit tests test a single function or method in isolation. The inputs and expected outputs are for that specific function
-only. Most of your tests are unit tests — e.g., TestImageParser calls ImageParser() directly and checks its return value.
+- Unit tests test a single function or method in isolation. The inputs and expected outputs are for that specific function only.
+- Integration tests test multiple components working together through a real execution path.
 
-Integration tests test multiple components working together through a real execution path. TestMarkdownToHTML is an
-integration test — a single input string flows through the entire pipeline:
-
-string → MarkdownToBlocks → BlockParser → LineParser → NodeParser
-       → SimpleParser/ImageParser/HyperlinkParser
-       → ToHTML → HTMLRender → string
-
-A bug in any of those layers would cause the integration test to fail, but it wouldn't tell you which layer broke. That's
+A bug in any of those components would cause the integration test to fail, but it wouldn't tell you which layer broke. That's
 the tradeoff:
 
 |                   | Unit                              | Integration                       |
