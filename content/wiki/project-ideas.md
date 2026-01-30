@@ -21,3 +21,7 @@ Features:
 - JSONL storage
 - configuration file
 - checklist templates
+
+# Communication Layer for Editor and REPL
+
+A server that an editor can connect to and send lines of code to be executed by a REPL
