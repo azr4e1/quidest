@@ -9,7 +9,7 @@ Cobra & Viper Quickstart
 
 ## Cobra
 
-Cobra is a library for building CLI applications with commands, subcommands, and flags.
+[Cobra](https://github.com/spf13/cobra) is a library for building CLI applications with commands, subcommands, and flags.
 
 ### Install
 
@@ -115,7 +115,7 @@ myapp serve -p 3000  # runs subcommand with flag
 
 ## Viper
 
-Viper handles configuration from files, environment variables, and flags with a unified API.
+[Viper](https://github.com/spf13/viper) handles configuration from files, environment variables, and flags with a unified API.
 
 ### Install
 
